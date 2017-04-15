@@ -14,6 +14,6 @@ namespace SSISSlackTaskCSharp
         public string Text { get; set; }
 
         [JsonProperty("attachment")]
-        public Attachement[] Attachments { get; set; }
+        public Attachment[] Attachments { get; set; }
     }
 }

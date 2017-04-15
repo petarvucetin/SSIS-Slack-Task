@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.ComponentModel;
+using System.Globalization;
+using Newtonsoft.Json;
 
 namespace SSISSlackTaskCSharp
 {
-    public class Attachement
+    [TypeConverter(typeof(AttachmentTypeConverter))]
+    public class Attachment
     {
         [JsonProperty("fallback")]
         public string Fallaback { get; set; }
@@ -46,5 +50,33 @@ namespace SSISSlackTaskCSharp
         [JsonProperty("ts")]
         public int TimeStamp { get; set; }
 
+    }
+
+    public class AttachmentTypeConverter : TypeConverter
+    {
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            return base.CanConvertFrom(context, sourceType);
+        }
+
+        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
+        {
+            return base.ConvertFrom(context, culture, value);
+        }
+
+        public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
+        {
+            return base.GetCreateInstanceSupported(context);
+        }
+
+        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+        {
+            return base.CanConvertTo(context, destinationType);
+        }
+
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
+        {
+            return base.ConvertTo(context, culture, value, destinationType);
+        }
     }
 }

@@ -28,12 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SSISTaskForm));
             this.label1 = new System.Windows.Forms.Label();
             this.SimpleMessageTextBox = new System.Windows.Forms.TextBox();
             this.DoneButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SlackMessageJsonTextBox = new System.Windows.Forms.TextBox();
             this.AttachmentsGridView = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.WebHookUrlTextBox = new System.Windows.Forms.TextBox();
+            this.TestButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.AttachmentFieldsGridView = new System.Windows.Forms.DataGridView();
+            this.colFieldTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFieldValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colShort = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ChannelTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.UserTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.colPreText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,19 +63,6 @@
             this.colFooter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFooterUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.WebHookUrlTextBox = new System.Windows.Forms.TextBox();
-            this.TestButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.AttachmentFieldsGridView = new System.Windows.Forms.DataGridView();
-            this.colFieldTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFieldValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShort = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ChannelTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.UserTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentFieldsGridView)).BeginInit();
             this.SuspendLayout();
@@ -85,7 +87,7 @@
             // DoneButton
             // 
             this.DoneButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.DoneButton.Location = new System.Drawing.Point(585, 673);
+            this.DoneButton.Location = new System.Drawing.Point(500, 673);
             this.DoneButton.Name = "DoneButton";
             this.DoneButton.Size = new System.Drawing.Size(75, 23);
             this.DoneButton.TabIndex = 2;
@@ -112,6 +114,8 @@
             // 
             // AttachmentsGridView
             // 
+            this.AttachmentsGridView.AllowUserToOrderColumns = true;
+            this.AttachmentsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.AttachmentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AttachmentsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPreText,
@@ -132,78 +136,6 @@
             this.AttachmentsGridView.Name = "AttachmentsGridView";
             this.AttachmentsGridView.Size = new System.Drawing.Size(640, 150);
             this.AttachmentsGridView.TabIndex = 5;
-            this.AttachmentsGridView.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.AttachmentsGridView_NewRowNeeded);
-            this.AttachmentsGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.AttachmentsGridView_UserAddedRow);
-            // 
-            // colPreText
-            // 
-            this.colPreText.HeaderText = "PreText";
-            this.colPreText.Name = "colPreText";
-            // 
-            // col
-            // 
-            this.col.HeaderText = "FallBack";
-            this.col.Name = "col";
-            // 
-            // colColor
-            // 
-            this.colColor.HeaderText = "Color";
-            this.colColor.Name = "colColor";
-            // 
-            // coltitle
-            // 
-            this.coltitle.HeaderText = "Title";
-            this.coltitle.Name = "coltitle";
-            // 
-            // colTitleLinkUrl
-            // 
-            this.colTitleLinkUrl.HeaderText = "Title Link Url";
-            this.colTitleLinkUrl.Name = "colTitleLinkUrl";
-            // 
-            // colText
-            // 
-            this.colText.HeaderText = "Text";
-            this.colText.Name = "colText";
-            // 
-            // colAuthorName
-            // 
-            this.colAuthorName.HeaderText = "Author Name";
-            this.colAuthorName.Name = "colAuthorName";
-            // 
-            // colAuthorLing
-            // 
-            this.colAuthorLing.HeaderText = "Author Link";
-            this.colAuthorLing.Name = "colAuthorLing";
-            // 
-            // colAuthorIconUrl
-            // 
-            this.colAuthorIconUrl.HeaderText = "Author Icon Url";
-            this.colAuthorIconUrl.Name = "colAuthorIconUrl";
-            // 
-            // colImageUrl
-            // 
-            this.colImageUrl.HeaderText = "Image Url";
-            this.colImageUrl.Name = "colImageUrl";
-            // 
-            // colThumbUrl
-            // 
-            this.colThumbUrl.HeaderText = "Thumb Url";
-            this.colThumbUrl.Name = "colThumbUrl";
-            // 
-            // colFooter
-            // 
-            this.colFooter.HeaderText = "Footer";
-            this.colFooter.Name = "colFooter";
-            // 
-            // colFooterUrl
-            // 
-            this.colFooterUrl.HeaderText = "Footer Url";
-            this.colFooterUrl.Name = "colFooterUrl";
-            // 
-            // colTimeStamp
-            // 
-            this.colTimeStamp.HeaderText = "Time Stamp";
-            this.colTimeStamp.Name = "colTimeStamp";
             // 
             // label3
             // 
@@ -232,7 +164,7 @@
             // 
             // TestButton
             // 
-            this.TestButton.Location = new System.Drawing.Point(504, 673);
+            this.TestButton.Location = new System.Drawing.Point(419, 673);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(75, 23);
             this.TestButton.TabIndex = 2;
@@ -308,12 +240,120 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "User";
             // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(581, 673);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // colPreText
+            // 
+            this.colPreText.DataPropertyName = "PreText";
+            this.colPreText.HeaderText = "PreText";
+            this.colPreText.Name = "colPreText";
+            this.colPreText.Width = 67;
+            // 
+            // col
+            // 
+            this.col.DataPropertyName = "Fallaback";
+            this.col.HeaderText = "FallBack";
+            this.col.Name = "col";
+            this.col.Width = 71;
+            // 
+            // colColor
+            // 
+            this.colColor.DataPropertyName = "Color";
+            this.colColor.HeaderText = "Color";
+            this.colColor.Name = "colColor";
+            this.colColor.Width = 54;
+            // 
+            // coltitle
+            // 
+            this.coltitle.DataPropertyName = "Title";
+            this.coltitle.HeaderText = "Title";
+            this.coltitle.Name = "coltitle";
+            this.coltitle.Width = 50;
+            // 
+            // colTitleLinkUrl
+            // 
+            this.colTitleLinkUrl.DataPropertyName = "TitleLinkUrl";
+            this.colTitleLinkUrl.HeaderText = "Title Link Url";
+            this.colTitleLinkUrl.Name = "colTitleLinkUrl";
+            this.colTitleLinkUrl.Width = 89;
+            // 
+            // colText
+            // 
+            this.colText.DataPropertyName = "Text";
+            this.colText.HeaderText = "Text";
+            this.colText.Name = "colText";
+            this.colText.Width = 51;
+            // 
+            // colAuthorName
+            // 
+            this.colAuthorName.DataPropertyName = "AuthorName";
+            this.colAuthorName.HeaderText = "Author Name";
+            this.colAuthorName.Name = "colAuthorName";
+            this.colAuthorName.Width = 92;
+            // 
+            // colAuthorLing
+            // 
+            this.colAuthorLing.DataPropertyName = "AuthorLink";
+            this.colAuthorLing.HeaderText = "Author Link";
+            this.colAuthorLing.Name = "colAuthorLing";
+            this.colAuthorLing.Width = 84;
+            // 
+            // colAuthorIconUrl
+            // 
+            this.colAuthorIconUrl.DataPropertyName = "AuthorLinkUrl";
+            this.colAuthorIconUrl.HeaderText = "Author Icon Url";
+            this.colAuthorIconUrl.Name = "colAuthorIconUrl";
+            this.colAuthorIconUrl.Width = 81;
+            // 
+            // colImageUrl
+            // 
+            this.colImageUrl.DataPropertyName = "ImageUrl";
+            this.colImageUrl.HeaderText = "Image Url";
+            this.colImageUrl.Name = "colImageUrl";
+            this.colImageUrl.Width = 69;
+            // 
+            // colThumbUrl
+            // 
+            this.colThumbUrl.DataPropertyName = "ThumbUrl";
+            this.colThumbUrl.HeaderText = "Thumb Url";
+            this.colThumbUrl.Name = "colThumbUrl";
+            this.colThumbUrl.Width = 73;
+            // 
+            // colFooter
+            // 
+            this.colFooter.DataPropertyName = "Footer";
+            this.colFooter.HeaderText = "Footer";
+            this.colFooter.Name = "colFooter";
+            this.colFooter.Width = 60;
+            // 
+            // colFooterUrl
+            // 
+            this.colFooterUrl.DataPropertyName = "FooterUrl";
+            this.colFooterUrl.HeaderText = "Footer Url";
+            this.colFooterUrl.Name = "colFooterUrl";
+            this.colFooterUrl.Width = 70;
+            // 
+            // colTimeStamp
+            // 
+            this.colTimeStamp.DataPropertyName = "TimeStamp";
+            this.colTimeStamp.HeaderText = "Time Stamp";
+            this.colTimeStamp.Name = "colTimeStamp";
+            this.colTimeStamp.Width = 79;
+            // 
             // SSISTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 710);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(672, 735);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.UserTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ChannelTextBox);
@@ -330,12 +370,12 @@
             this.Controls.Add(this.SimpleMessageTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SSISTaskForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SSISTaskForm";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentFieldsGridView)).EndInit();
             this.ResumeLayout(false);
@@ -351,6 +391,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox SlackMessageJsonTextBox;
         private System.Windows.Forms.DataGridView AttachmentsGridView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox WebHookUrlTextBox;
+        private System.Windows.Forms.Button TestButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView AttachmentFieldsGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldValue;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colShort;
+        private System.Windows.Forms.TextBox ChannelTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox UserTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPreText;
         private System.Windows.Forms.DataGridViewTextBoxColumn col;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColor;
@@ -365,18 +419,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFooter;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFooterUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeStamp;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox WebHookUrlTextBox;
-        private System.Windows.Forms.Button TestButton;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView AttachmentFieldsGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldValue;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colShort;
-        private System.Windows.Forms.TextBox ChannelTextBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox UserTextBox;
-        private System.Windows.Forms.Label label7;
     }
 }

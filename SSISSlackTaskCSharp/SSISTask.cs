@@ -38,10 +38,11 @@ namespace SSISSlackTaskCSharp
 
         [Browsable(true)]
         [Category("Slack Settings")]
-        public Attachement[] Attachements { get; set; }
+        public List<Attachment> Attachments { get; set; }
 
         public override void InitializeTask(Connections connections, VariableDispenser variableDispenser, IDTSInfoEvents events, IDTSLogging log, EventInfos eventInfos, LogEntryInfos logEntryInfos, ObjectReferenceTracker refTracker)
         {
+            Attachments = new List<Attachment>();
             //base.InitializeTask(connections, variableDispenser, events, log, eventInfos, logEntryInfos, refTracker);
         }
 
@@ -56,33 +57,6 @@ namespace SSISSlackTaskCSharp
             System.Windows.Forms.MessageBox.Show(Text);
             return DTSExecResult.Success;
         }
-
-        //public void LoadFromXML(XmlElement node, IDTSInfoEvents infoEvents)
-        //{
-        //    var serializer = new XmlSerializer(typeof(SlackMessage));
-
-        //    using (var sr = new StringReader(node.InnerXml))
-        //    {
-        //        this.Attachements = serializer.Deserialize(sr) as Attachement[];
-        //    }
-
-
-        //}
-
-        //public void SaveToXML(XmlDocument doc, IDTSInfoEvents infoEvents)
-        //{
-        //    var serializer = new XmlSerializer(typeof(SlackMessage));
-        //    using (var sww = new StringWriter())
-        //    {
-        //        using (XmlWriter writer = XmlWriter.Create(sww))
-        //        {
-        //            serializer.Serialize(writer, this.Attachements);
-        //            var xml = sww.ToString(); // Your XML
-        //            doc.LoadXml(xml);
-        //        }
-        //    }
-            
-        //}
 
 
     }

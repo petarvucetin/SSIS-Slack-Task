@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{E5F83ACF-CE51-478D-9BA9-141FE2F99312}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{03F07702-479D-4AD2-A8D2-388BC72CF302}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Slack Task"
       DTS:CreationName="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:Description="Slack Task"
-      DTS:DTSID="{A9454C79-F2AD-4F03-A408-A8E27C58FFD3}"
+      DTS:DTSID="{4C5DF218-4448-4AED-82A6-AD398EC1E9BC}"
       DTS:ExecutableType="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:LocaleID="-1"
       DTS:ObjectName="Slack Task"
@@ -30,12 +30,12 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <InnerObject>
-          <Attachements
+          <Attachments
             Type="12"
             Value="" />
           <Channel
             Type="8"
-            Value="channel" />
+            Value="" />
           <SlackMessageJson
             Type="8"
             Value="" />
@@ -44,10 +44,10 @@
             Value="130" />
           <Text
             Type="8"
-            Value="test" />
+            Value="" />
           <User
             Type="8"
-            Value="user" />
+            Value="" />
           <WebHookUrl
             Type="8"
             Value="" />

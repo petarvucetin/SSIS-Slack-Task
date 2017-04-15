@@ -14,7 +14,7 @@ namespace SSISSlackTaskCSharp
 {
     public partial class SSISTaskForm : Form
     {
-        private readonly TaskHost _taskHostValue;
+        private TaskHost _taskHostValue;
 
         public SSISTaskForm()
         {
@@ -23,13 +23,14 @@ namespace SSISSlackTaskCSharp
             if (SlackMessage == null)
                 SlackMessage = new SlackMessageViewModel();
 
-            this.AttachmentsGridView.AutoGenerateColumns = false;
             this.AttachmentsGridView.DataSource = SlackMessage.Attachments;
         }
 
         public SSISTaskForm(TaskHost taskHostValue) : this()
         {
             this._taskHostValue = taskHostValue;
+
+            SlackMessage = new SlackMessageViewModel();
 
             var messageTextProp = taskHostValue.Properties["Text"];
             this.SimpleMessageTextBox.Text = (string)messageTextProp.GetValue(taskHostValue);
@@ -48,52 +49,16 @@ namespace SSISSlackTaskCSharp
 
 
             var attachment = taskHostValue.Properties["Attachments"];
-            var attachmentInstance = attachment.GetValue(taskHostValue) as List<Attachment>;
+            var attachmentInstance = attachment.GetValue(taskHostValue) as Attachement[];
 
             if (attachmentInstance != null)
             {
-                var attachments = attachmentInstance.Cast<Attachment>();
-
-                foreach (var a in attachments)
+                foreach (var a in attachmentInstance)
                 {
                     var item = SlackMessage.Attachments.AddNew();
                     item.PreText = a.PreText;
-                    item.AuthorIconUrl = a.AuthorIconUrl;
-                    item.AuthorLink = a.AuthorLink;
-                    item.AuthorName = a.AuthorName;
-                    item.Color = a.Color;
-                    item.Fallaback = a.Fallaback;
-
-                    if (a.Fields != null)
-                    {
-                        var fields = new BindingList<FieldViewModel>();
-                        foreach (var field in a.Fields)
-                        {
-                            var f = new FieldViewModel
-                            {
-                                Title = field.Title,
-                                Short = field.Short,
-                                Value = field.Value
-                            };
-
-
-                            fields.Add(f);
-                        }
-
-                        item.Fields = fields;
-                    }
-                    item.Footer = a.Footer;
-                    item.FooterIconUrl = a.FooterIconUrl;
-                    item.ImageUrl = a.ImageUrl;
-                    item.ThumbUrl = a.ThumbUrl;
-                    item.TimeStamp = a.TimeStamp;
-                    item.Title = a.Title;
-                    item.TitleLinkUrl = a.TitleLinkUrl;
-                    
                 }
             }
-
-            //this.AttachmentsGridView.Refresh();
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -107,33 +72,17 @@ namespace SSISSlackTaskCSharp
             //transfer property to real slack message
             if (this.SlackMessage.Attachments.Count > 0)
             {
-                var list = new List<Attachment>();
-                foreach (var av in SlackMessage.Attachments)
+                var list = new List<Attachement>();
+                foreach (var slackMessageAttachment in SlackMessage.Attachments)
                 {
-                    var a = new Attachment();
-                    a.PreText = av.PreText;
-                    a.AuthorIconUrl = av.AuthorIconUrl;
-                    a.AuthorName = av.AuthorName;
-                    //a.Fields
-                    a.FooterIconUrl = av.FooterIconUrl;
-                    a.ImageUrl = av.ImageUrl;
-                    a.ThumbUrl = av.ThumbUrl;
-                    a.TimeStamp = av.TimeStamp;
-                    a.Title = av.Title;
-                    a.TitleLinkUrl = av.TitleLinkUrl;
-                    a.AuthorLink = av.AuthorLink;
-                    a.Color = av.Color;
-                    a.Fallaback = av.Fallaback;
-                    a.Footer = av.Footer;
-
+                    var a = new Attachement();
+                    a.PreText = slackMessageAttachment.PreText;
                     list.Add(a);
                 }
 
-                //var attachments = list.ToArray();
-                var prop = _taskHostValue.Properties["Attachments"];
-                var proval = prop.GetValue(_taskHostValue) as List<Attachment>;
-                prop.SetValue(_taskHostValue, list);
-               
+                var attachments = list.ToArray();
+
+                _taskHostValue.Properties["Attachements"].SetValue(_taskHostValue, attachments);
             }
 
             
@@ -151,5 +100,65 @@ namespace SSISSlackTaskCSharp
 
         public SlackMessageViewModel SlackMessage { get; set; }
 
+    }
+
+    public class SlackMessageViewModel
+    {
+        public SlackMessageViewModel()
+        {
+            Attachments = new BindingList<AttachementViewModel>();
+
+        }
+
+        public string Channel { get; set; }
+
+        public string Username { get; set; }
+
+        public string Text { get; set; }
+
+        public BindingList<AttachementViewModel> Attachments { get; set; }
+    }
+
+    public class AttachementViewModel
+    {
+        public AttachementViewModel()
+        {
+            Fields = new BindingList<FieldViewModel>();
+        }
+        public string Fallaback { get; set; }
+
+        public string Color { get; set; }
+
+        public string PreText { get; set; }
+
+        public string AuthorName { get; set; }
+
+        public string AuthorLink { get; set; }
+
+        public string AuthorIconUrl { get; set; }
+
+        public string Title { get; set; }
+
+        public string TitleLinkUrl { get; set; }
+
+        public BindingList<FieldViewModel> Fields { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public string ThumbUrl { get; set; }
+
+        public string Footer { get; set; }
+
+        public string FooterIconUrl { get; set; }
+
+        public int TimeStamp { get; set; }
+
+    }
+
+    public class FieldViewModel
+    {
+        public string Title { get; set; }
+        public string Value { get; set; }
+        public bool Short { get; set; }
     }
 }
