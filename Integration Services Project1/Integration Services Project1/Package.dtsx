@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{6D982537-5E32-4AE5-8C07-D34373BACFD2}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{E5F83ACF-CE51-478D-9BA9-141FE2F99312}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -20,29 +20,37 @@
     <DTS:Executable
       DTS:refId="Package\Slack Task"
       DTS:CreationName="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
-      DTS:DTSID="{56E91513-0984-4258-8230-A5B0EE58E156}"
+      DTS:Description="Slack Task"
+      DTS:DTSID="{A9454C79-F2AD-4F03-A408-A8E27C58FFD3}"
       DTS:ExecutableType="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:LocaleID="-1"
       DTS:ObjectName="Slack Task"
+      DTS:TaskContact="petar.vucetin@clear-lines.com"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <InnerObject>
-          <Attachments
+          <Attachements
             Type="12"
             Value="" />
-          <SimpleMessageText
+          <Channel
             Type="8"
-            Value="" />
+            Value="channel" />
           <SlackMessageJson
             Type="8"
             Value="" />
           <TargetServerVersion
             Type="3"
             Value="130" />
+          <Text
+            Type="8"
+            Value="test" />
+          <User
+            Type="8"
+            Value="user" />
           <WebHookUrl
             Type="8"
-            Value="https://hooks.slack.com/services/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" />
+            Value="" />
         </InnerObject>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -62,7 +70,7 @@
         <NodeLayout
           Size="128,42"
           Id="Package\Slack Task"
-          TopLeft="267,310" />
+          TopLeft="5.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

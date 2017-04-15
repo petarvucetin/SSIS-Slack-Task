@@ -32,8 +32,8 @@
             this.SimpleMessageTextBox = new System.Windows.Forms.TextBox();
             this.DoneButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SlackMessageJsonTextBox = new System.Windows.Forms.TextBox();
+            this.AttachmentsGridView = new System.Windows.Forms.DataGridView();
             this.colPreText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,18 +53,22 @@
             this.WebHookUrlTextBox = new System.Windows.Forms.TextBox();
             this.TestButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.AttachmentFieldsGridView = new System.Windows.Forms.DataGridView();
             this.colFieldTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFieldValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShort = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.ChannelTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.UserTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachmentFieldsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 66);
+            this.label1.Location = new System.Drawing.Point(16, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 0;
@@ -72,7 +76,7 @@
             // 
             // SimpleMessageTextBox
             // 
-            this.SimpleMessageTextBox.Location = new System.Drawing.Point(13, 82);
+            this.SimpleMessageTextBox.Location = new System.Drawing.Point(18, 139);
             this.SimpleMessageTextBox.Multiline = true;
             this.SimpleMessageTextBox.Name = "SimpleMessageTextBox";
             this.SimpleMessageTextBox.Size = new System.Drawing.Size(641, 66);
@@ -81,7 +85,7 @@
             // DoneButton
             // 
             this.DoneButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.DoneButton.Location = new System.Drawing.Point(580, 616);
+            this.DoneButton.Location = new System.Drawing.Point(585, 673);
             this.DoneButton.Name = "DoneButton";
             this.DoneButton.Size = new System.Drawing.Size(75, 23);
             this.DoneButton.TabIndex = 2;
@@ -92,24 +96,24 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 153);
+            this.label2.Location = new System.Drawing.Point(16, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Message as JSON";
             // 
-            // textBox1
+            // SlackMessageJsonTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 169);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(640, 122);
-            this.textBox1.TabIndex = 4;
+            this.SlackMessageJsonTextBox.Location = new System.Drawing.Point(19, 226);
+            this.SlackMessageJsonTextBox.Multiline = true;
+            this.SlackMessageJsonTextBox.Name = "SlackMessageJsonTextBox";
+            this.SlackMessageJsonTextBox.Size = new System.Drawing.Size(640, 122);
+            this.SlackMessageJsonTextBox.TabIndex = 4;
             // 
-            // dataGridView1
+            // AttachmentsGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AttachmentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AttachmentsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPreText,
             this.col,
             this.colColor,
@@ -124,10 +128,12 @@
             this.colFooter,
             this.colFooterUrl,
             this.colTimeStamp});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 310);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(640, 150);
-            this.dataGridView1.TabIndex = 5;
+            this.AttachmentsGridView.Location = new System.Drawing.Point(19, 367);
+            this.AttachmentsGridView.Name = "AttachmentsGridView";
+            this.AttachmentsGridView.Size = new System.Drawing.Size(640, 150);
+            this.AttachmentsGridView.TabIndex = 5;
+            this.AttachmentsGridView.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.AttachmentsGridView_NewRowNeeded);
+            this.AttachmentsGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.AttachmentsGridView_UserAddedRow);
             // 
             // colPreText
             // 
@@ -202,7 +208,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 294);
+            this.label3.Location = new System.Drawing.Point(16, 351);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 3;
@@ -211,7 +217,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 9);
+            this.label4.Location = new System.Drawing.Point(17, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 0;
@@ -219,14 +225,14 @@
             // 
             // WebHookUrlTextBox
             // 
-            this.WebHookUrlTextBox.Location = new System.Drawing.Point(13, 25);
+            this.WebHookUrlTextBox.Location = new System.Drawing.Point(19, 31);
             this.WebHookUrlTextBox.Name = "WebHookUrlTextBox";
             this.WebHookUrlTextBox.Size = new System.Drawing.Size(641, 20);
             this.WebHookUrlTextBox.TabIndex = 1;
             // 
             // TestButton
             // 
-            this.TestButton.Location = new System.Drawing.Point(499, 616);
+            this.TestButton.Location = new System.Drawing.Point(504, 673);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(75, 23);
             this.TestButton.TabIndex = 2;
@@ -237,23 +243,23 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 480);
+            this.label5.Location = new System.Drawing.Point(15, 537);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Attachements Fields";
             // 
-            // dataGridView2
+            // AttachmentFieldsGridView
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AttachmentFieldsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AttachmentFieldsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colFieldTitle,
             this.colFieldValue,
             this.colShort});
-            this.dataGridView2.Location = new System.Drawing.Point(14, 496);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(640, 94);
-            this.dataGridView2.TabIndex = 6;
+            this.AttachmentFieldsGridView.Location = new System.Drawing.Point(19, 553);
+            this.AttachmentFieldsGridView.Name = "AttachmentFieldsGridView";
+            this.AttachmentFieldsGridView.Size = new System.Drawing.Size(640, 94);
+            this.AttachmentFieldsGridView.TabIndex = 6;
             // 
             // colFieldTitle
             // 
@@ -270,14 +276,51 @@
             this.colShort.HeaderText = "Show in Short";
             this.colShort.Name = "colShort";
             // 
+            // ChannelTextBox
+            // 
+            this.ChannelTextBox.Location = new System.Drawing.Point(19, 94);
+            this.ChannelTextBox.Name = "ChannelTextBox";
+            this.ChannelTextBox.Size = new System.Drawing.Size(148, 20);
+            this.ChannelTextBox.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Channel";
+            // 
+            // UserTextBox
+            // 
+            this.UserTextBox.Location = new System.Drawing.Point(173, 94);
+            this.UserTextBox.Name = "UserTextBox";
+            this.UserTextBox.Size = new System.Drawing.Size(148, 20);
+            this.UserTextBox.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(171, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "User";
+            // 
             // SSISTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 646);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(672, 710);
+            this.ControlBox = false;
+            this.Controls.Add(this.UserTextBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.ChannelTextBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.AttachmentFieldsGridView);
+            this.Controls.Add(this.AttachmentsGridView);
+            this.Controls.Add(this.SlackMessageJsonTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -287,10 +330,14 @@
             this.Controls.Add(this.SimpleMessageTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SSISTaskForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SSISTaskForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachmentFieldsGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,8 +349,8 @@
         private System.Windows.Forms.TextBox SimpleMessageTextBox;
         private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox SlackMessageJsonTextBox;
+        private System.Windows.Forms.DataGridView AttachmentsGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPreText;
         private System.Windows.Forms.DataGridViewTextBoxColumn col;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColor;
@@ -323,9 +370,13 @@
         private System.Windows.Forms.TextBox WebHookUrlTextBox;
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView AttachmentFieldsGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFieldTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFieldValue;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colShort;
+        private System.Windows.Forms.TextBox ChannelTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox UserTextBox;
+        private System.Windows.Forms.Label label7;
     }
 }

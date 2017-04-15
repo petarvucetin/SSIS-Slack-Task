@@ -26,10 +26,7 @@ namespace SSISSlackTaskCSharp
             this.SimpleMessageTextBox.Text = SlackMessage.Text;
             if (SlackMessage.Attachments != null)
             {
-                foreach (var attachemnt in SlackMessage.Attachments)
-                {
-                    this.AttachmentGrid.addr
-                }
+                this.AttachmentGrid.DataSource = this.SlackMessage.Attachments;
             }
            
         }

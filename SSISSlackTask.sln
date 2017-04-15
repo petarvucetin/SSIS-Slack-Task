@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SSISSlackTask", "SSISSlackT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSISSlackTaskCSharp", "SSISSlackTaskCSharp\SSISSlackTaskCSharp.csproj", "{8EF140BA-5BD1-47EF-A38A-B12F8E8407C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UItests", "UItests\UItests.csproj", "{B1D786B6-56D8-4486-906E-2BD48B46EAE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8EF140BA-5BD1-47EF-A38A-B12F8E8407C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EF140BA-5BD1-47EF-A38A-B12F8E8407C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EF140BA-5BD1-47EF-A38A-B12F8E8407C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D786B6-56D8-4486-906E-2BD48B46EAE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D786B6-56D8-4486-906E-2BD48B46EAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D786B6-56D8-4486-906E-2BD48B46EAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D786B6-56D8-4486-906E-2BD48B46EAE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

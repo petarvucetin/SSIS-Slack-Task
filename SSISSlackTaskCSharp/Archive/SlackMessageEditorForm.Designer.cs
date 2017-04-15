@@ -225,7 +225,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 483);
+            this.ClientSize = new System.Drawing.Size(667, 510);
+            this.ControlBox = false;
             this.Controls.Add(this.SimpleMessageTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FieldsGrid);
@@ -233,7 +234,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DoneButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SlackMessageEditorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SlackMessageEditorForm";
             ((System.ComponentModel.ISupportInitialize)(this.FieldsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentGrid)).EndInit();

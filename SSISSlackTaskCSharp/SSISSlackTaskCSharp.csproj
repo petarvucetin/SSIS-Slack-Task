@@ -16,10 +16,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Program Files %28x86%29\Microsoft SQL Server\130\DTS\Tasks\</OutputPath>
+    <OutputPath>C:\Program Files %28x86%29\Microsoft SQL Server\130\DTS\Tasks\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,12 +61,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SlackClient.cs" />
-    <Compile Include="SlackMessageEditor.cs" />
-    <Compile Include="SlackMessageEditorForm.cs">
+    <Compile Include="SlackClient\Attachement.cs" />
+    <Compile Include="SlackClient\Field.cs" />
+    <Compile Include="SlackClient\SlackClient.cs" />
+    <Compile Include="SlackClient\SlackMessage.cs" />
+    <Compile Include="Archive\SlackMessageEditor.cs" />
+    <Compile Include="Archive\SlackMessageEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SlackMessageEditorForm.Designer.cs">
+    <Compile Include="Archive\SlackMessageEditorForm.Designer.cs">
       <DependentUpon>SlackMessageEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SSISTask.cs" />
@@ -76,10 +80,10 @@
     <Compile Include="SSISTaskForm.Designer.cs">
       <DependentUpon>SSISTaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SSISTaskUI.cs" />
+    <Compile Include="SSIS\SSISTaskUI.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SlackMessageEditorForm.resx">
+    <EmbeddedResource Include="Archive\SlackMessageEditorForm.resx">
       <DependentUpon>SlackMessageEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SSISTaskForm.resx">
@@ -93,6 +97,7 @@
   <ItemGroup>
     <EmbeddedResource Include="web_slack_32px_1175007_easyicon.net.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,32 +7,41 @@ using System.Xml;
 using Microsoft.SqlServer.Dts.Runtime;
 using System.ComponentModel;
 using System.Drawing.Design;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace SSISSlackTaskCSharp
 {
+
     [DtsTask(
         DisplayName = "Slack Task",
         Description = "Send message to slack",
         UITypeName = "SSISSlackTaskCSharp.SSISTaskUI, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=81f28340fabd6dd7",
         IconResource = "SSISSlackTaskCSharp.web_slack_32px_1175007_easyicon.net.ico",
-        TaskContact = "Petar_Vucetin@gap.com or Mercury_Schroeppel@gap.com")]
-    public class SSISTask :  Microsoft.SqlServer.Dts.Runtime.Task, IDTSComponentPersist
+        TaskContact = "petar.vucetin@clear-lines.com")]
+    public class SSISTask :  Microsoft.SqlServer.Dts.Runtime.Task //, IDTSComponentPersist
     {
-        public string SimpleMessageText { get; set; }
+        [Category("Slack Settings")]
+        public string Text { get; set; }
 
+        [Category("Slack Settings")]
+        public string Channel { get; set; }
+
+        [Category("Slack Settings")]
+        public string User { get; set; }
+
+        [Category("Slack Settings")]
         public string SlackMessageJson { get; set; }
 
+        [Category("Slack Settings")]
         public string WebHookUrl { get; set; }
 
-        [System.ComponentModel.Browsable(true)]
-        [System.ComponentModel.Editor(typeof(SlackMessageEditor), typeof(UITypeEditor))]
-        public SlackMessage SlackMessage { get; set; }
+        [Browsable(true)]
+        [Category("Slack Settings")]
+        public Attachement[] Attachements { get; set; }
 
         public override void InitializeTask(Connections connections, VariableDispenser variableDispenser, IDTSInfoEvents events, IDTSLogging log, EventInfos eventInfos, LogEntryInfos logEntryInfos, ObjectReferenceTracker refTracker)
         {
-            SlackMessage = new SlackMessage();
-            SlackMessage.Text = "hello";
-
             //base.InitializeTask(connections, variableDispenser, events, log, eventInfos, logEntryInfos, refTracker);
         }
 
@@ -44,19 +53,36 @@ namespace SSISSlackTaskCSharp
 
         public override DTSExecResult Execute(Connections connections, VariableDispenser variableDispenser, IDTSComponentEvents componentEvents, IDTSLogging log, object transaction)
         {
-            System.Windows.Forms.MessageBox.Show(SimpleMessageText);
+            System.Windows.Forms.MessageBox.Show(Text);
             return DTSExecResult.Success;
         }
 
-        public void LoadFromXML(XmlElement node, IDTSInfoEvents infoEvents)
-        {
-            //Todo
-        }
+        //public void LoadFromXML(XmlElement node, IDTSInfoEvents infoEvents)
+        //{
+        //    var serializer = new XmlSerializer(typeof(SlackMessage));
 
-        public void SaveToXML(XmlDocument doc, IDTSInfoEvents infoEvents)
-        {
-            //todo
-        }
+        //    using (var sr = new StringReader(node.InnerXml))
+        //    {
+        //        this.Attachements = serializer.Deserialize(sr) as Attachement[];
+        //    }
+
+
+        //}
+
+        //public void SaveToXML(XmlDocument doc, IDTSInfoEvents infoEvents)
+        //{
+        //    var serializer = new XmlSerializer(typeof(SlackMessage));
+        //    using (var sww = new StringWriter())
+        //    {
+        //        using (XmlWriter writer = XmlWriter.Create(sww))
+        //        {
+        //            serializer.Serialize(writer, this.Attachements);
+        //            var xml = sww.ToString(); // Your XML
+        //            doc.LoadXml(xml);
+        //        }
+        //    }
+            
+        //}
 
 
     }
