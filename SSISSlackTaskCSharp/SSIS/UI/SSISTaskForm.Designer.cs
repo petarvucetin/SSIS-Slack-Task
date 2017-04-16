@@ -134,6 +134,7 @@
             this.colFooterUrl,
             this.colTimeStamp});
             this.AttachmentsGridView.Location = new System.Drawing.Point(19, 349);
+            this.AttachmentsGridView.MultiSelect = false;
             this.AttachmentsGridView.Name = "AttachmentsGridView";
             this.AttachmentsGridView.Size = new System.Drawing.Size(640, 150);
             this.AttachmentsGridView.TabIndex = 5;
@@ -345,16 +346,19 @@
             // 
             // colFieldTitle
             // 
+            this.colFieldTitle.DataPropertyName = "Title";
             this.colFieldTitle.HeaderText = "Title";
             this.colFieldTitle.Name = "colFieldTitle";
             // 
             // colFieldValue
             // 
+            this.colFieldValue.DataPropertyName = "Value";
             this.colFieldValue.HeaderText = "Field Value";
             this.colFieldValue.Name = "colFieldValue";
             // 
             // colShort
             // 
+            this.colShort.DataPropertyName = "Short";
             this.colShort.HeaderText = "Show in Short";
             this.colShort.Name = "colShort";
             // 

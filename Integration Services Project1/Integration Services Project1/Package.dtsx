@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{FDF9439F-6749-4A2A-84AB-A035F01F760C}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{E2A4A873-3E99-43F6-A63B-CCAEBFEFAD23}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -40,12 +40,36 @@
                 <Color>good</Color>
                 <PreText>123</PreText>
                 <Title>tets1</Title>
+                <Fields>
+                  <Field>
+                    <Title>a</Title>
+                    <Short>false</Short>
+                  </Field>
+                  <Field>
+                    <Title>b</Title>
+                    <Short>false</Short>
+                  </Field>
+                  <Field>
+                    <Title>c</Title>
+                    <Short>false</Short>
+                  </Field>
+                </Fields>
                 <TimeStamp>0</TimeStamp>
               </Attachment>
               <Attachment>
                 <Color>error</Color>
                 <PreText>456</PreText>
                 <Title>test2</Title>
+                <Fields>
+                  <Field>
+                    <Title>1a</Title>
+                    <Short>false</Short>
+                  </Field>
+                  <Field>
+                    <Title>2b</Title>
+                    <Short>false</Short>
+                  </Field>
+                </Fields>
                 <TimeStamp>0</TimeStamp>
               </Attachment>
             </Attachments>

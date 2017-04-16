@@ -19,5 +19,6 @@ namespace SSISSlackTaskCSharp
         public BindingList<AttachementViewModel> Attachments { get; set; }
 
         public BindingList<FieldViewModel> SelectedAttachmentFields { get; set; }
+        public int SelectedRowIndex { get; set; }
     }
 }

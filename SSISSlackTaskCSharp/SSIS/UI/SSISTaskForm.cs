@@ -78,11 +78,7 @@ namespace SSISSlackTaskCSharp
                                 Short = field.Short,
                                 Value = field.Value
                             };
-
-                            
-
                             fields.Add(f);
-                            
                         }
 
                         item.Fields = fields;
@@ -94,11 +90,19 @@ namespace SSISSlackTaskCSharp
                     item.TimeStamp = a.TimeStamp;
                     item.Title = a.Title;
                     item.TitleLinkUrl = a.TitleLinkUrl;
-                    
+
                 }
             }
 
-            
+            if (SlackMessage.Attachments.Any())
+            {
+                var firstAttachement = SlackMessage.Attachments.First();
+
+                foreach (var field in firstAttachement.Fields)
+                {
+                    SlackMessage.SelectedAttachmentFields.Add(field);
+                }
+            }
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -119,7 +123,9 @@ namespace SSISSlackTaskCSharp
                     a.PreText = av.PreText;
                     a.AuthorIconUrl = av.AuthorIconUrl;
                     a.AuthorName = av.AuthorName;
-                    //a.Fields
+
+                    a.Fields = av.Fields.Select(z => new Field { Title = z.Title, Value =  z.Value, Short = z.Short}).ToArray();
+
                     a.FooterIconUrl = av.FooterIconUrl;
                     a.ImageUrl = av.ImageUrl;
                     a.ThumbUrl = av.ThumbUrl;
@@ -136,10 +142,10 @@ namespace SSISSlackTaskCSharp
 
                 var prop = _taskHostValue.Properties["Attachments"];
                 prop.SetValue(_taskHostValue, list);
-               
+
             }
 
-            
+
         }
 
         private void TestButton_Click(object sender, EventArgs e)
@@ -167,7 +173,7 @@ namespace SSISSlackTaskCSharp
                 a.AuthorName = z.AuthorName;
                 if (z.Fields != null)
                 {
-                    a.Fields = z.Fields.Select(f =>  new Field {Title  = f.Title, Value = f.Value, Short = f.Short} ).ToArray();
+                    a.Fields = z.Fields.Select(f => new Field { Title = f.Title, Value = f.Value, Short = f.Short }).ToArray();
                 }
                 a.FooterIconUrl = z.FooterIconUrl;
                 a.ImageUrl = z.ImageUrl;
@@ -183,12 +189,10 @@ namespace SSISSlackTaskCSharp
                 return a;
             }).ToArray();
 
-            
+
 
             this.ResponseTextBox.Text = client.SendMessage(message, webHook);
         }
-
-        
 
         private void AttachmentsGridView_SelectionChanged(object sender, EventArgs e)
         {
@@ -196,14 +200,34 @@ namespace SSISSlackTaskCSharp
 
             if (dg.CurrentRow != null)
             {
-                var attachment = dg.CurrentRow.DataBoundItem as AttachementViewModel;
+                var attachmentSource = dg.CurrentRow.DataBoundItem as AttachementViewModel;
+
+
+                //find the previous row
+                var previousRow = dg.Rows[SlackMessage.SelectedRowIndex].DataBoundItem as AttachementViewModel;
+
+                //update previous row
+                if (previousRow != null)
+                {
+                    previousRow.Fields.Clear();
+
+                    foreach (var field in SlackMessage.SelectedAttachmentFields)
+                    {
+                        previousRow.Fields.Add(field);
+                    }
+                }
+
+                //set the current SelectedAttachmentFields
 
                 SlackMessage.SelectedAttachmentFields.Clear();
 
-                foreach (var f in attachment.Fields)
+                foreach (var field in attachmentSource.Fields)
                 {
-                    SlackMessage.SelectedAttachmentFields.Add(f);
+                    SlackMessage.SelectedAttachmentFields.Add(field);
                 }
+
+                //set current row index
+                SlackMessage.SelectedRowIndex = dg.CurrentRow.Index;
             }
         }
     }
