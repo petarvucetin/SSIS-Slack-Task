@@ -8,6 +8,9 @@ namespace SSISSlackTaskCSharp
         {
             Fields = new BindingList<FieldViewModel>();
         }
+
+        public int RowId { get; set; }
+
         public string Fallaback { get; set; }
 
         public string Color { get; set; }

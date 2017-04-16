@@ -8,6 +8,8 @@ namespace SSISSlackTaskCSharp
         {
             Attachments = new BindingList<AttachementViewModel>();
             Attachments.RaiseListChangedEvents = true;
+            SelectedAttachmentFields = new BindingList<FieldViewModel>();
+            SelectedAttachmentFields.RaiseListChangedEvents = true;
         }
 
         public string Username { get; set; }
@@ -15,5 +17,7 @@ namespace SSISSlackTaskCSharp
         public string Text { get; set; }
 
         public BindingList<AttachementViewModel> Attachments { get; set; }
+
+        public BindingList<FieldViewModel> SelectedAttachmentFields { get; set; }
     }
 }

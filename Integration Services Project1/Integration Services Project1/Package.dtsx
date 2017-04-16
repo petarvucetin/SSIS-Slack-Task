@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{E802E185-3F9A-43FA-A348-AA15A1AFDE8A}">
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{FDF9439F-6749-4A2A-84AB-A035F01F760C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -35,7 +35,20 @@
           <SlackMessage>
             <Username>user 1</Username>
             <Text>test</Text>
-            <Attachments />
+            <Attachments>
+              <Attachment>
+                <Color>good</Color>
+                <PreText>123</PreText>
+                <Title>tets1</Title>
+                <TimeStamp>0</TimeStamp>
+              </Attachment>
+              <Attachment>
+                <Color>error</Color>
+                <PreText>456</PreText>
+                <Title>test2</Title>
+                <TimeStamp>0</TimeStamp>
+              </Attachment>
+            </Attachments>
           </SlackMessage>
         </TaskProperties>
       </DTS:ObjectData>

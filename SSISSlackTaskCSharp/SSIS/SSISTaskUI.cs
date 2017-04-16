@@ -13,19 +13,22 @@ namespace SSISSlackTaskCSharp
 {
     public class SSISTaskUI : IDtsTaskUI
     {
-        private TaskHost taskHostValue ;
+        private TaskHost _taskHost ;
+        private IServiceProvider _serviceProvider;
+
         public void Delete(IWin32Window parentWindow)
         {
         }
 
         public ContainerControl GetView()
         {
-            return new SSISTaskForm(taskHostValue);
+            return new SSISTaskForm(_taskHost, _serviceProvider);
         }
 
         public void Initialize(TaskHost taskHost, IServiceProvider serviceProvider)
         {
-            taskHostValue = taskHost;
+            _taskHost = taskHost;
+            _serviceProvider = serviceProvider;
         }
 
         public void New(IWin32Window parentWindow)
@@ -34,3 +37,4 @@ namespace SSISSlackTaskCSharp
         }
     }
 }
+

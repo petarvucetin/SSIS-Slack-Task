@@ -35,6 +35,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SlackMessageJsonTextBox = new System.Windows.Forms.TextBox();
             this.AttachmentsGridView = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.WebHookUrlTextBox = new System.Windows.Forms.TextBox();
+            this.TestButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.AttachmentFieldsGridView = new System.Windows.Forms.DataGridView();
+            this.ChannelTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.UserTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ResponseTextBox = new System.Windows.Forms.TextBox();
             this.colPreText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,21 +61,9 @@
             this.colFooter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFooterUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.WebHookUrlTextBox = new System.Windows.Forms.TextBox();
-            this.TestButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.AttachmentFieldsGridView = new System.Windows.Forms.DataGridView();
             this.colFieldTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFieldValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShort = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ChannelTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.UserTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ResponseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentFieldsGridView)).BeginInit();
             this.SuspendLayout();
@@ -137,104 +137,7 @@
             this.AttachmentsGridView.Name = "AttachmentsGridView";
             this.AttachmentsGridView.Size = new System.Drawing.Size(640, 150);
             this.AttachmentsGridView.TabIndex = 5;
-            // 
-            // colPreText
-            // 
-            this.colPreText.DataPropertyName = "PreText";
-            this.colPreText.HeaderText = "PreText";
-            this.colPreText.Name = "colPreText";
-            this.colPreText.Width = 67;
-            // 
-            // col
-            // 
-            this.col.DataPropertyName = "Fallaback";
-            this.col.HeaderText = "FallBack";
-            this.col.Name = "col";
-            this.col.Width = 71;
-            // 
-            // colColor
-            // 
-            this.colColor.DataPropertyName = "Color";
-            this.colColor.HeaderText = "Color";
-            this.colColor.Name = "colColor";
-            this.colColor.Width = 54;
-            // 
-            // coltitle
-            // 
-            this.coltitle.DataPropertyName = "Title";
-            this.coltitle.HeaderText = "Title";
-            this.coltitle.Name = "coltitle";
-            this.coltitle.Width = 50;
-            // 
-            // colTitleLinkUrl
-            // 
-            this.colTitleLinkUrl.DataPropertyName = "TitleLinkUrl";
-            this.colTitleLinkUrl.HeaderText = "Title Link Url";
-            this.colTitleLinkUrl.Name = "colTitleLinkUrl";
-            this.colTitleLinkUrl.Width = 70;
-            // 
-            // colText
-            // 
-            this.colText.DataPropertyName = "Text";
-            this.colText.HeaderText = "Text";
-            this.colText.Name = "colText";
-            this.colText.Width = 51;
-            // 
-            // colAuthorName
-            // 
-            this.colAuthorName.DataPropertyName = "AuthorName";
-            this.colAuthorName.HeaderText = "Author Name";
-            this.colAuthorName.Name = "colAuthorName";
-            this.colAuthorName.Width = 85;
-            // 
-            // colAuthorLing
-            // 
-            this.colAuthorLing.DataPropertyName = "AuthorLink";
-            this.colAuthorLing.HeaderText = "Author Link";
-            this.colAuthorLing.Name = "colAuthorLing";
-            this.colAuthorLing.Width = 77;
-            // 
-            // colAuthorIconUrl
-            // 
-            this.colAuthorIconUrl.DataPropertyName = "AuthorLinkUrl";
-            this.colAuthorIconUrl.HeaderText = "Author Icon Url";
-            this.colAuthorIconUrl.Name = "colAuthorIconUrl";
-            this.colAuthorIconUrl.Width = 81;
-            // 
-            // colImageUrl
-            // 
-            this.colImageUrl.DataPropertyName = "ImageUrl";
-            this.colImageUrl.HeaderText = "Image Url";
-            this.colImageUrl.Name = "colImageUrl";
-            this.colImageUrl.Width = 69;
-            // 
-            // colThumbUrl
-            // 
-            this.colThumbUrl.DataPropertyName = "ThumbUrl";
-            this.colThumbUrl.HeaderText = "Thumb Url";
-            this.colThumbUrl.Name = "colThumbUrl";
-            this.colThumbUrl.Width = 73;
-            // 
-            // colFooter
-            // 
-            this.colFooter.DataPropertyName = "Footer";
-            this.colFooter.HeaderText = "Footer";
-            this.colFooter.Name = "colFooter";
-            this.colFooter.Width = 60;
-            // 
-            // colFooterUrl
-            // 
-            this.colFooterUrl.DataPropertyName = "FooterUrl";
-            this.colFooterUrl.HeaderText = "Footer Url";
-            this.colFooterUrl.Name = "colFooterUrl";
-            this.colFooterUrl.Width = 70;
-            // 
-            // colTimeStamp
-            // 
-            this.colTimeStamp.DataPropertyName = "TimeStamp";
-            this.colTimeStamp.HeaderText = "Time Stamp";
-            this.colTimeStamp.Name = "colTimeStamp";
-            this.colTimeStamp.Width = 79;
+            this.AttachmentsGridView.SelectionChanged += new System.EventHandler(this.AttachmentsGridView_SelectionChanged);
             // 
             // label3
             // 
@@ -292,21 +195,6 @@
             this.AttachmentFieldsGridView.Size = new System.Drawing.Size(640, 94);
             this.AttachmentFieldsGridView.TabIndex = 6;
             // 
-            // colFieldTitle
-            // 
-            this.colFieldTitle.HeaderText = "Title";
-            this.colFieldTitle.Name = "colFieldTitle";
-            // 
-            // colFieldValue
-            // 
-            this.colFieldValue.HeaderText = "Field Value";
-            this.colFieldValue.Name = "colFieldValue";
-            // 
-            // colShort
-            // 
-            this.colShort.HeaderText = "Show in Short";
-            this.colShort.Name = "colShort";
-            // 
             // ChannelTextBox
             // 
             this.ChannelTextBox.Location = new System.Drawing.Point(19, 76);
@@ -356,6 +244,119 @@
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.Size = new System.Drawing.Size(641, 32);
             this.ResponseTextBox.TabIndex = 12;
+            // 
+            // colPreText
+            // 
+            this.colPreText.DataPropertyName = "PreText";
+            this.colPreText.HeaderText = "PreText";
+            this.colPreText.Name = "colPreText";
+            this.colPreText.Width = 67;
+            // 
+            // col
+            // 
+            this.col.DataPropertyName = "Fallaback";
+            this.col.HeaderText = "FallBack";
+            this.col.Name = "col";
+            this.col.Width = 71;
+            // 
+            // colColor
+            // 
+            this.colColor.DataPropertyName = "Color";
+            this.colColor.HeaderText = "Color";
+            this.colColor.Name = "colColor";
+            this.colColor.Width = 54;
+            // 
+            // coltitle
+            // 
+            this.coltitle.DataPropertyName = "Title";
+            this.coltitle.HeaderText = "Title";
+            this.coltitle.Name = "coltitle";
+            this.coltitle.Width = 50;
+            // 
+            // colTitleLinkUrl
+            // 
+            this.colTitleLinkUrl.DataPropertyName = "TitleLinkUrl";
+            this.colTitleLinkUrl.HeaderText = "Title Link Url";
+            this.colTitleLinkUrl.Name = "colTitleLinkUrl";
+            this.colTitleLinkUrl.Width = 89;
+            // 
+            // colText
+            // 
+            this.colText.DataPropertyName = "Text";
+            this.colText.HeaderText = "Text";
+            this.colText.Name = "colText";
+            this.colText.Width = 51;
+            // 
+            // colAuthorName
+            // 
+            this.colAuthorName.DataPropertyName = "AuthorName";
+            this.colAuthorName.HeaderText = "Author Name";
+            this.colAuthorName.Name = "colAuthorName";
+            this.colAuthorName.Width = 92;
+            // 
+            // colAuthorLing
+            // 
+            this.colAuthorLing.DataPropertyName = "AuthorLink";
+            this.colAuthorLing.HeaderText = "Author Link";
+            this.colAuthorLing.Name = "colAuthorLing";
+            this.colAuthorLing.Width = 84;
+            // 
+            // colAuthorIconUrl
+            // 
+            this.colAuthorIconUrl.DataPropertyName = "AuthorLinkUrl";
+            this.colAuthorIconUrl.HeaderText = "Author Icon Url";
+            this.colAuthorIconUrl.Name = "colAuthorIconUrl";
+            this.colAuthorIconUrl.Width = 81;
+            // 
+            // colImageUrl
+            // 
+            this.colImageUrl.DataPropertyName = "ImageUrl";
+            this.colImageUrl.HeaderText = "Image Url";
+            this.colImageUrl.Name = "colImageUrl";
+            this.colImageUrl.Width = 69;
+            // 
+            // colThumbUrl
+            // 
+            this.colThumbUrl.DataPropertyName = "ThumbUrl";
+            this.colThumbUrl.HeaderText = "Thumb Url";
+            this.colThumbUrl.Name = "colThumbUrl";
+            this.colThumbUrl.Width = 73;
+            // 
+            // colFooter
+            // 
+            this.colFooter.DataPropertyName = "Footer";
+            this.colFooter.HeaderText = "Footer";
+            this.colFooter.Name = "colFooter";
+            this.colFooter.Width = 60;
+            // 
+            // colFooterUrl
+            // 
+            this.colFooterUrl.DataPropertyName = "FooterUrl";
+            this.colFooterUrl.HeaderText = "Footer Url";
+            this.colFooterUrl.Name = "colFooterUrl";
+            this.colFooterUrl.Width = 70;
+            // 
+            // colTimeStamp
+            // 
+            this.colTimeStamp.DataPropertyName = "TimeStamp";
+            this.colTimeStamp.HeaderText = "Time Stamp";
+            this.colTimeStamp.Name = "colTimeStamp";
+            this.colTimeStamp.Width = 79;
+            // 
+            // colFieldTitle
+            // 
+            this.colFieldTitle.HeaderText = "Title";
+            this.colFieldTitle.Name = "colFieldTitle";
+            // 
+            // colFieldValue
+            // 
+            this.colFieldValue.HeaderText = "Field Value";
+            this.colFieldValue.Name = "colFieldValue";
+            // 
+            // colShort
+            // 
+            this.colShort.HeaderText = "Show in Short";
+            this.colShort.Name = "colShort";
             // 
             // SSISTaskForm
             // 
@@ -407,14 +408,12 @@
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView AttachmentFieldsGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldValue;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colShort;
         private System.Windows.Forms.TextBox ChannelTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox UserTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox ResponseTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPreText;
         private System.Windows.Forms.DataGridViewTextBoxColumn col;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColor;
@@ -429,6 +428,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFooter;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFooterUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeStamp;
-        private System.Windows.Forms.TextBox ResponseTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFieldValue;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colShort;
     }
 }

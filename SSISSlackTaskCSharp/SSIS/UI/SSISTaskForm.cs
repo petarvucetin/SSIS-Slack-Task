@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Dts.Runtime;
-using Newtonsoft.Json;
 
 namespace SSISSlackTaskCSharp
 {
     public partial class SSISTaskForm : Form
     {
         private readonly TaskHost _taskHostValue;
+        private IServiceProvider _serviceProvider;
+
+        public SlackMessageViewModel SlackMessage { get; set; }
 
         public SSISTaskForm()
         {
@@ -24,12 +22,15 @@ namespace SSISSlackTaskCSharp
                 SlackMessage = new SlackMessageViewModel();
 
             this.AttachmentsGridView.AutoGenerateColumns = false;
+            this.AttachmentFieldsGridView.AutoGenerateColumns = false;
             this.AttachmentsGridView.DataSource = SlackMessage.Attachments;
+            this.AttachmentFieldsGridView.DataSource = this.SlackMessage.SelectedAttachmentFields;
         }
 
-        public SSISTaskForm(TaskHost taskHostValue) : this()
+        public SSISTaskForm(TaskHost taskHostValue, IServiceProvider serviceProvider) : this()
         {
             this._taskHostValue = taskHostValue;
+            this._serviceProvider = serviceProvider;
 
             var messageTextProp = taskHostValue.Properties["Text"];
             this.SimpleMessageTextBox.Text = (string)messageTextProp.GetValue(taskHostValue);
@@ -53,10 +54,11 @@ namespace SSISSlackTaskCSharp
             if (attachmentInstance != null)
             {
                 var attachments = attachmentInstance.Cast<Attachment>();
-
+                var index = 0;
                 foreach (var a in attachments)
                 {
                     var item = SlackMessage.Attachments.AddNew();
+                    item.RowId = index++;
                     item.PreText = a.PreText;
                     item.AuthorIconUrl = a.AuthorIconUrl;
                     item.AuthorLink = a.AuthorLink;
@@ -71,13 +73,16 @@ namespace SSISSlackTaskCSharp
                         {
                             var f = new FieldViewModel
                             {
+                                AttachementRowId = item.RowId,
                                 Title = field.Title,
                                 Short = field.Short,
                                 Value = field.Value
                             };
 
+                            
 
                             fields.Add(f);
+                            
                         }
 
                         item.Fields = fields;
@@ -93,11 +98,9 @@ namespace SSISSlackTaskCSharp
                 }
             }
 
-            //this.AttachmentsGridView.Refresh();
+            
         }
-        
 
-    
         private void DoneButton_Click(object sender, EventArgs e)
         {
             _taskHostValue.Properties["Text"].SetValue(_taskHostValue, this.SimpleMessageTextBox.Text);
@@ -185,7 +188,23 @@ namespace SSISSlackTaskCSharp
             this.ResponseTextBox.Text = client.SendMessage(message, webHook);
         }
 
-        public SlackMessageViewModel SlackMessage { get; set; }
+        
 
+        private void AttachmentsGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            var dg = sender as DataGridView;
+
+            if (dg.CurrentRow != null)
+            {
+                var attachment = dg.CurrentRow.DataBoundItem as AttachementViewModel;
+
+                SlackMessage.SelectedAttachmentFields.Clear();
+
+                foreach (var f in attachment.Fields)
+                {
+                    SlackMessage.SelectedAttachmentFields.Add(f);
+                }
+            }
+        }
     }
 }
