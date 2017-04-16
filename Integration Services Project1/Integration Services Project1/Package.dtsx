@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{03F07702-479D-4AD2-A8D2-388BC72CF302}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{E802E185-3F9A-43FA-A348-AA15A1AFDE8A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Slack Task"
       DTS:CreationName="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:Description="Slack Task"
-      DTS:DTSID="{4C5DF218-4448-4AED-82A6-AD398EC1E9BC}"
+      DTS:DTSID="{EDD66417-D5E4-43D6-B072-0CA8D9B8B443}"
       DTS:ExecutableType="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:LocaleID="-1"
       DTS:ObjectName="Slack Task"
@@ -29,29 +29,15 @@
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <InnerObject>
-          <Attachments
-            Type="12"
-            Value="" />
-          <Channel
-            Type="8"
-            Value="" />
-          <SlackMessageJson
-            Type="8"
-            Value="" />
-          <TargetServerVersion
-            Type="3"
-            Value="130" />
-          <Text
-            Type="8"
-            Value="" />
-          <User
-            Type="8"
-            Value="" />
-          <WebHookUrl
-            Type="8"
-            Value="" />
-        </InnerObject>
+        <TaskProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <WebHookUrl>https://hooks.slack.com/services/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</WebHookUrl>
+          <Channel />
+          <SlackMessage>
+            <Username>user 1</Username>
+            <Text>test</Text>
+            <Attachments />
+          </SlackMessage>
+        </TaskProperties>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

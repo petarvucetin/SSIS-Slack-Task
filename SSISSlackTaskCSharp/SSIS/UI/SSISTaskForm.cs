@@ -95,7 +95,9 @@ namespace SSISSlackTaskCSharp
 
             //this.AttachmentsGridView.Refresh();
         }
+        
 
+    
         private void DoneButton_Click(object sender, EventArgs e)
         {
             _taskHostValue.Properties["Text"].SetValue(_taskHostValue, this.SimpleMessageTextBox.Text);
@@ -129,9 +131,7 @@ namespace SSISSlackTaskCSharp
                     list.Add(a);
                 }
 
-                //var attachments = list.ToArray();
                 var prop = _taskHostValue.Properties["Attachments"];
-                var proval = prop.GetValue(_taskHostValue) as List<Attachment>;
                 prop.SetValue(_taskHostValue, list);
                
             }
@@ -145,8 +145,44 @@ namespace SSISSlackTaskCSharp
 
             var webHook = this.WebHookUrlTextBox.Text;
 
+            var channel = this.ChannelTextBox.Text;
 
-            //client.SendMessage(message, webHook);
+            var user = this.UserTextBox.Text;
+
+            var text = this.SimpleMessageTextBox.Text;
+
+            var message = new SlackMessage();
+            message.Username = user;
+            message.Text = text;
+
+            message.Attachments = this.SlackMessage.Attachments.Select(z =>
+            {
+                var a = new Attachment();
+                a.Text = z.Text;
+                a.PreText = z.PreText;
+                a.AuthorIconUrl = z.AuthorIconUrl;
+                a.AuthorName = z.AuthorName;
+                if (z.Fields != null)
+                {
+                    a.Fields = z.Fields.Select(f =>  new Field {Title  = f.Title, Value = f.Value, Short = f.Short} ).ToArray();
+                }
+                a.FooterIconUrl = z.FooterIconUrl;
+                a.ImageUrl = z.ImageUrl;
+                a.ThumbUrl = z.ThumbUrl;
+                a.TimeStamp = z.TimeStamp;
+                a.Title = z.Title;
+                a.TitleLinkUrl = z.TitleLinkUrl;
+                a.AuthorLink = z.AuthorLink;
+                a.Color = z.Color;
+                a.Fallaback = z.Fallaback;
+                a.Footer = z.Footer;
+
+                return a;
+            }).ToArray();
+
+            
+
+            this.ResponseTextBox.Text = client.SendMessage(message, webHook);
         }
 
         public SlackMessageViewModel SlackMessage { get; set; }

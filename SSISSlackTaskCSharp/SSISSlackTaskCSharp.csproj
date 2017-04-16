@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,6 +12,8 @@
     <AssemblyName>SSISSlackTaskCSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,8 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttachementViewModel.cs" />
-    <Compile Include="FieldViewModel.cs" />
+    <Compile Include="SSIS\UI\AttachementViewModel.cs" />
+    <Compile Include="SSIS\UI\FieldViewModel.cs" />
     <Compile Include="SlackClient\Attachement.cs" />
     <Compile Include="SlackClient\Field.cs" />
     <Compile Include="SlackClient\SlackClient.cs" />
@@ -74,13 +77,13 @@
     <Compile Include="Archive\SlackMessageEditorForm.Designer.cs">
       <DependentUpon>SlackMessageEditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SlackMessageViewModel.cs" />
-    <Compile Include="SSISTask.cs" />
+    <Compile Include="SSIS\UI\SlackMessageViewModel.cs" />
+    <Compile Include="SSIS\SSISTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SSISTaskForm.cs">
+    <Compile Include="SSIS\UI\SSISTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SSISTaskForm.Designer.cs">
+    <Compile Include="SSIS\UI\SSISTaskForm.Designer.cs">
       <DependentUpon>SSISTaskForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SSIS\SSISTaskUI.cs" />
@@ -89,19 +92,30 @@
     <EmbeddedResource Include="Archive\SlackMessageEditorForm.resx">
       <DependentUpon>SlackMessageEditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SSISTaskForm.resx">
+    <EmbeddedResource Include="SSIS\UI\SSISTaskForm.resx">
       <DependentUpon>SSISTaskForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ILMerge.props" />
     <None Include="packages.config" />
     <None Include="ssis task.snk" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="web_slack_32px_1175007_easyicon.net.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ILMergeOrder.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.props'))" />
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

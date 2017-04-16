@@ -17,23 +17,15 @@ namespace SSISSlackTaskCSharp
     {
         private readonly Encoding _encoding = new UTF8Encoding();
 
-        public void SendMessage(SlackMessage message, string webHook)
+        public string SendMessage(SlackMessage message, string webHook)
         {
             var slackMessage = ConvertToSlackMessage(message);
             var response = Send(slackMessage, new Uri(webHook));
 
-            switch (response)
-            {
-                case "":
-                    break;
-                case "ok":
-                    break;
-                default:
-                    throw new ApplicationException(string.Format("Invalid response from slack {0}", response));
-            }
+            return response;
         }
 
-        private string ConvertToSlackMessage(SlackMessage message)
+        public static string ConvertToSlackMessage(SlackMessage message)
         {
             var payloadJson = JsonConvert.SerializeObject(message);
             return payloadJson;

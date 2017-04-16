@@ -8,11 +8,7 @@ namespace SSISSlackTaskCSharp
         {
             Attachments = new BindingList<AttachementViewModel>();
             Attachments.RaiseListChangedEvents = true;
-            
-
         }
-
-        public string Channel { get; set; }
 
         public string Username { get; set; }
 

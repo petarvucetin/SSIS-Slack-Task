@@ -35,20 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SlackMessageJsonTextBox = new System.Windows.Forms.TextBox();
             this.AttachmentsGridView = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.WebHookUrlTextBox = new System.Windows.Forms.TextBox();
-            this.TestButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.AttachmentFieldsGridView = new System.Windows.Forms.DataGridView();
-            this.colFieldTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFieldValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colShort = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ChannelTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.UserTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.colPreText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +49,21 @@
             this.colFooter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFooterUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.WebHookUrlTextBox = new System.Windows.Forms.TextBox();
+            this.TestButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.AttachmentFieldsGridView = new System.Windows.Forms.DataGridView();
+            this.colFieldTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFieldValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colShort = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ChannelTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.UserTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ResponseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttachmentFieldsGridView)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 123);
+            this.label1.Location = new System.Drawing.Point(16, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 0;
@@ -78,7 +79,7 @@
             // 
             // SimpleMessageTextBox
             // 
-            this.SimpleMessageTextBox.Location = new System.Drawing.Point(18, 139);
+            this.SimpleMessageTextBox.Location = new System.Drawing.Point(18, 121);
             this.SimpleMessageTextBox.Multiline = true;
             this.SimpleMessageTextBox.Name = "SimpleMessageTextBox";
             this.SimpleMessageTextBox.Size = new System.Drawing.Size(641, 66);
@@ -98,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 210);
+            this.label2.Location = new System.Drawing.Point(16, 192);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 3;
@@ -106,7 +107,7 @@
             // 
             // SlackMessageJsonTextBox
             // 
-            this.SlackMessageJsonTextBox.Location = new System.Drawing.Point(19, 226);
+            this.SlackMessageJsonTextBox.Location = new System.Drawing.Point(19, 208);
             this.SlackMessageJsonTextBox.Multiline = true;
             this.SlackMessageJsonTextBox.Name = "SlackMessageJsonTextBox";
             this.SlackMessageJsonTextBox.Size = new System.Drawing.Size(640, 122);
@@ -132,123 +133,10 @@
             this.colFooter,
             this.colFooterUrl,
             this.colTimeStamp});
-            this.AttachmentsGridView.Location = new System.Drawing.Point(19, 367);
+            this.AttachmentsGridView.Location = new System.Drawing.Point(19, 349);
             this.AttachmentsGridView.Name = "AttachmentsGridView";
             this.AttachmentsGridView.Size = new System.Drawing.Size(640, 150);
             this.AttachmentsGridView.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 351);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Attachements";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Web Hook Url";
-            // 
-            // WebHookUrlTextBox
-            // 
-            this.WebHookUrlTextBox.Location = new System.Drawing.Point(19, 31);
-            this.WebHookUrlTextBox.Name = "WebHookUrlTextBox";
-            this.WebHookUrlTextBox.Size = new System.Drawing.Size(641, 20);
-            this.WebHookUrlTextBox.TabIndex = 1;
-            // 
-            // TestButton
-            // 
-            this.TestButton.Location = new System.Drawing.Point(419, 673);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(75, 23);
-            this.TestButton.TabIndex = 2;
-            this.TestButton.Text = "Test";
-            this.TestButton.UseVisualStyleBackColor = true;
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 537);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Attachements Fields";
-            // 
-            // AttachmentFieldsGridView
-            // 
-            this.AttachmentFieldsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AttachmentFieldsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colFieldTitle,
-            this.colFieldValue,
-            this.colShort});
-            this.AttachmentFieldsGridView.Location = new System.Drawing.Point(19, 553);
-            this.AttachmentFieldsGridView.Name = "AttachmentFieldsGridView";
-            this.AttachmentFieldsGridView.Size = new System.Drawing.Size(640, 94);
-            this.AttachmentFieldsGridView.TabIndex = 6;
-            // 
-            // colFieldTitle
-            // 
-            this.colFieldTitle.HeaderText = "Title";
-            this.colFieldTitle.Name = "colFieldTitle";
-            // 
-            // colFieldValue
-            // 
-            this.colFieldValue.HeaderText = "Field Value";
-            this.colFieldValue.Name = "colFieldValue";
-            // 
-            // colShort
-            // 
-            this.colShort.HeaderText = "Show in Short";
-            this.colShort.Name = "colShort";
-            // 
-            // ChannelTextBox
-            // 
-            this.ChannelTextBox.Location = new System.Drawing.Point(19, 94);
-            this.ChannelTextBox.Name = "ChannelTextBox";
-            this.ChannelTextBox.Size = new System.Drawing.Size(148, 20);
-            this.ChannelTextBox.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 78);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Channel";
-            // 
-            // UserTextBox
-            // 
-            this.UserTextBox.Location = new System.Drawing.Point(173, 94);
-            this.UserTextBox.Name = "UserTextBox";
-            this.UserTextBox.Size = new System.Drawing.Size(148, 20);
-            this.UserTextBox.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(171, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "User";
-            // 
-            // button1
-            // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(581, 673);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // colPreText
             // 
@@ -283,7 +171,7 @@
             this.colTitleLinkUrl.DataPropertyName = "TitleLinkUrl";
             this.colTitleLinkUrl.HeaderText = "Title Link Url";
             this.colTitleLinkUrl.Name = "colTitleLinkUrl";
-            this.colTitleLinkUrl.Width = 89;
+            this.colTitleLinkUrl.Width = 70;
             // 
             // colText
             // 
@@ -297,14 +185,14 @@
             this.colAuthorName.DataPropertyName = "AuthorName";
             this.colAuthorName.HeaderText = "Author Name";
             this.colAuthorName.Name = "colAuthorName";
-            this.colAuthorName.Width = 92;
+            this.colAuthorName.Width = 85;
             // 
             // colAuthorLing
             // 
             this.colAuthorLing.DataPropertyName = "AuthorLink";
             this.colAuthorLing.HeaderText = "Author Link";
             this.colAuthorLing.Name = "colAuthorLing";
-            this.colAuthorLing.Width = 84;
+            this.colAuthorLing.Width = 77;
             // 
             // colAuthorIconUrl
             // 
@@ -348,11 +236,133 @@
             this.colTimeStamp.Name = "colTimeStamp";
             this.colTimeStamp.Width = 79;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 333);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Attachements";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Web Hook Url";
+            // 
+            // WebHookUrlTextBox
+            // 
+            this.WebHookUrlTextBox.Location = new System.Drawing.Point(19, 31);
+            this.WebHookUrlTextBox.Name = "WebHookUrlTextBox";
+            this.WebHookUrlTextBox.Size = new System.Drawing.Size(641, 20);
+            this.WebHookUrlTextBox.TabIndex = 1;
+            // 
+            // TestButton
+            // 
+            this.TestButton.Location = new System.Drawing.Point(419, 673);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(75, 23);
+            this.TestButton.TabIndex = 2;
+            this.TestButton.Text = "Test";
+            this.TestButton.UseVisualStyleBackColor = true;
+            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 519);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Attachements Fields";
+            // 
+            // AttachmentFieldsGridView
+            // 
+            this.AttachmentFieldsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AttachmentFieldsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colFieldTitle,
+            this.colFieldValue,
+            this.colShort});
+            this.AttachmentFieldsGridView.Location = new System.Drawing.Point(19, 535);
+            this.AttachmentFieldsGridView.Name = "AttachmentFieldsGridView";
+            this.AttachmentFieldsGridView.Size = new System.Drawing.Size(640, 94);
+            this.AttachmentFieldsGridView.TabIndex = 6;
+            // 
+            // colFieldTitle
+            // 
+            this.colFieldTitle.HeaderText = "Title";
+            this.colFieldTitle.Name = "colFieldTitle";
+            // 
+            // colFieldValue
+            // 
+            this.colFieldValue.HeaderText = "Field Value";
+            this.colFieldValue.Name = "colFieldValue";
+            // 
+            // colShort
+            // 
+            this.colShort.HeaderText = "Show in Short";
+            this.colShort.Name = "colShort";
+            // 
+            // ChannelTextBox
+            // 
+            this.ChannelTextBox.Location = new System.Drawing.Point(19, 76);
+            this.ChannelTextBox.Name = "ChannelTextBox";
+            this.ChannelTextBox.Size = new System.Drawing.Size(148, 20);
+            this.ChannelTextBox.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Channel";
+            // 
+            // UserTextBox
+            // 
+            this.UserTextBox.Location = new System.Drawing.Point(173, 76);
+            this.UserTextBox.Name = "UserTextBox";
+            this.UserTextBox.Size = new System.Drawing.Size(148, 20);
+            this.UserTextBox.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(171, 60);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "User";
+            // 
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(581, 673);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ResponseTextBox
+            // 
+            this.ResponseTextBox.Location = new System.Drawing.Point(20, 635);
+            this.ResponseTextBox.Multiline = true;
+            this.ResponseTextBox.Name = "ResponseTextBox";
+            this.ResponseTextBox.Size = new System.Drawing.Size(641, 32);
+            this.ResponseTextBox.TabIndex = 12;
+            // 
             // SSISTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 735);
+            this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.UserTextBox);
             this.Controls.Add(this.label7);
@@ -419,5 +429,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFooter;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFooterUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeStamp;
+        private System.Windows.Forms.TextBox ResponseTextBox;
     }
 }
