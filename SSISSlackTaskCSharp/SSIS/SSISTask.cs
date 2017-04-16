@@ -43,16 +43,24 @@ namespace SSISSlackTaskCSharp
         public override void InitializeTask(Connections connections, VariableDispenser variableDispenser, IDTSInfoEvents events, IDTSLogging log, EventInfos eventInfos, LogEntryInfos logEntryInfos, ObjectReferenceTracker refTracker)
         {
             Attachments = new List<Attachment>();
-            //base.InitializeTask(connections, variableDispenser, events, log, eventInfos, logEntryInfos, refTracker);
         }
 
         public override DTSExecResult Validate(Connections connections, VariableDispenser variableDispenser,
             IDTSComponentEvents componentEvents, IDTSLogging log)
         {
-            //if (WebHookUrl != null)
+            if (WebHookUrl == null)
+            {
+                componentEvents.FireError(0, "Slact Taks", "Error sending message to Slack. Webhook is not set.", "",0);
+                return DTSExecResult.Failure;
+            }
+
+            if (Text == null)
+            {
+                componentEvents.FireError(0, "Slact Taks", "Error sending message to Slack. Text is not set.", "",0);
+                return DTSExecResult.Failure;
+            }
+
             return DTSExecResult.Success;
-            //else
-            //    return DTSExecResult.Failure;
         }
 
         public override DTSExecResult Execute(Connections connections, VariableDispenser variableDispenser,
@@ -66,6 +74,8 @@ namespace SSISSlackTaskCSharp
                 message.Username = this.User;
                 message.Attachments = Attachments.ToArray();
 
+                this.SlackMessageJson = SlackClient.ConvertToSlackMessage(message);
+
                 client.SendMessage(message, this.WebHookUrl);
 
             }
@@ -74,7 +84,8 @@ namespace SSISSlackTaskCSharp
                 componentEvents.FireError(0, "Slact Taks", "Error sending message to Slack. Webhook = " + WebHookUrl, "", 0);
             }
 
-            //Always retun sucess
+            //Always retun sucess because we do not want to fail package if we cannot send message to Slack
+            //TODO: Should this be a setting?
             return DTSExecResult.Success;
         }
 
@@ -120,13 +131,6 @@ namespace SSISSlackTaskCSharp
             }
 
         }
-    }
-
-    public class TaskProperties
-    {
-        public string WebHookUrl { get; set; }
-        public string Channel { get; set; }
-        public SlackMessage SlackMessage { get; set; }
     }
 }
 

@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SSIS\TaskProperties.cs" />
     <Compile Include="SSIS\UI\AttachementViewModel.cs" />
     <Compile Include="SSIS\UI\FieldViewModel.cs" />
     <Compile Include="SlackClient\Attachement.cs" />
