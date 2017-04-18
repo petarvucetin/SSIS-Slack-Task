@@ -1,4 +1,4 @@
-﻿namespace SSISSlackTaskCSharp.Simple
+﻿namespace SSISSlackTaskCSharp.Simple.UI
 {
     partial class SlackSingleAttachmentTaskForm
     {

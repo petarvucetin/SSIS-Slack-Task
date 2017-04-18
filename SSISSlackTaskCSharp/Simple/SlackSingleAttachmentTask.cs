@@ -3,7 +3,6 @@ using Microsoft.SqlServer.Dts.Runtime;
 
 namespace SSISSlackTaskCSharp.Simple
 {
-  
     [DtsTask(
        DisplayName = "Slack Attachment Task",
        Description = "Send message to slack",

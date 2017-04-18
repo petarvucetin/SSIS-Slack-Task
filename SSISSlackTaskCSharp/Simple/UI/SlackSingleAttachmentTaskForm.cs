@@ -4,11 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Dts.Runtime;
-using SSISSlackTaskCSharp.Infrastructure;
-using SSISSlackTaskCSharp.Simple.UI;
-using SSISSlackTaskCSharp.SSIS;
 
-namespace SSISSlackTaskCSharp.Simple
+namespace SSISSlackTaskCSharp.Simple.UI
 {
     public partial class SlackSingleAttachmentTaskForm : Form
     {
@@ -28,39 +25,40 @@ namespace SSISSlackTaskCSharp.Simple
             _propertiesProvider = propertiesProvider;
             this._serviceProvider = serviceProvider;
 
-            ExtractPropetiesFromProvider(propertiesProvider);
-
-            //var messageTextProp = _propertiesProvider.Properties[Member.Of<SlackSingleAttachment>(p => p.Text)];
-            //this.SimpleMessageTextBox.Text = (string)messageTextProp.GetValue(_propertiesProvider);
-
-            //var webHook = _propertiesProvider.Properties[Member.Of<SlackSingleAttachment>(p => p.WebHookUrl)];
-            //this.WebHookUrlTextBox.Text = (string)webHook.GetValue(_propertiesProvider);
-
-            //var json = _propertiesProvider.Properties["SlackMessageJson"];
-            //this.SlackMessageJsonTextBox.Text = (string)json.GetValue(_propertiesProvider);
-
-            //var channel = _propertiesProvider.Properties["Channel"];
-            //this.ChannelTextBox.Text = (string)channel.GetValue(_propertiesProvider);
-
-            //var user = _propertiesProvider.Properties["User"];
-            //this.UserTextBox.Text = (string)user.GetValue(_propertiesProvider);
+            var properties = ExtractPropetiesFromProvider(propertiesProvider);
+            BindPropertiesToForm(properties);
 
         }
 
-        private KeyValuePair<string, object>[] ExtractPropetiesFromProvider(IDTSPropertiesProvider propertiesProvider)
+        private void BindPropertiesToForm(Tuple<string, Type, object>[] properties)
+        {
+            var textProperties = properties.Where(z => z.Item2 == typeof(string)).ToArray();
+
+            foreach (var text in textProperties)
+            {
+
+                var textBoxName = text.Item1 + "TextBox";
+                var textBox = this.Controls.Find(textBoxName, true).Single();
+                textBox.Text = (string)text.Item3;
+            }
+
+        }
+
+
+        private Tuple<string, Type, object>[] ExtractPropetiesFromProvider(IDTSPropertiesProvider propertiesProvider)
         {
             //get properties with category custom attribute
             var properties = typeof(SlackSingleAttachmentTask).GetProperties()
                 .Where(z => z.CustomAttributes.Any(x => x.AttributeType == typeof(CategoryAttribute)));
 
-            var list = new List<KeyValuePair<string, object>>();
+            var list = new List<Tuple<string, Type, object>>();
 
             foreach (var propertyInfo in properties)
             {
                 var prop = propertiesProvider.Properties[propertyInfo.Name];
                 var propValue = prop.GetValue(_propertiesProvider);
 
-                list.Add(new KeyValuePair<string, object>(propertyInfo.Name, propValue));
+                list.Add(new Tuple<string, Type, object>(propertyInfo.Name, propertyInfo.PropertyType, propValue));
             }
 
             return list.ToArray();
