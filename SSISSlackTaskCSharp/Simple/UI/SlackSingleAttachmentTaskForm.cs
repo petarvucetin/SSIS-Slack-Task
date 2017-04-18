@@ -50,7 +50,7 @@ namespace SSISSlackTaskCSharp.Simple
         private KeyValuePair<string, object>[] ExtractPropetiesFromProvider(IDTSPropertiesProvider propertiesProvider)
         {
             //get properties with category custom attribute
-            var properties = typeof(SlackSingleAttachment).GetProperties()
+            var properties = typeof(SlackSingleAttachmentTask).GetProperties()
                 .Where(z => z.CustomAttributes.Any(x => x.AttributeType == typeof(CategoryAttribute)));
 
             var list = new List<KeyValuePair<string, object>>();
@@ -68,7 +68,7 @@ namespace SSISSlackTaskCSharp.Simple
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            _propertiesProvider.Properties["Text"].SetValue(_propertiesProvider, this.SimpleMessageTextBox.Text);
+            _propertiesProvider.Properties["Text"].SetValue(_propertiesProvider, this.TextTextBox.Text);
             _propertiesProvider.Properties["WebHookUrl"].SetValue(_propertiesProvider, this.WebHookUrlTextBox.Text);
             _propertiesProvider.Properties["SlackMessageJson"].SetValue(_propertiesProvider, this.SlackMessageJsonTextBox.Text);
             _propertiesProvider.Properties["Channel"].SetValue(_propertiesProvider, this.ChannelTextBox.Text);
@@ -86,7 +86,7 @@ namespace SSISSlackTaskCSharp.Simple
 
             var user = this.UserTextBox.Text;
 
-            var text = this.SimpleMessageTextBox.Text;
+            var text = this.TextTextBox.Text;
 
             var message = new SlackMessage();
             message.Username = user;

@@ -34,7 +34,7 @@ namespace SSISSlackTaskCSharp.Simple
         [Category("Slack Settings")]
         public string AttachmentAuthorName { get; set; }
         [Category("Slack Settings")]
-        public string AttachmentAuthorLink { get; set; }
+        public string AttachmentAuthorLinkUrl { get; set; }
         [Category("Slack Settings")]
         public string AttachmentAuthorIconUrl { get; set; }
         [Category("Slack Settings")]

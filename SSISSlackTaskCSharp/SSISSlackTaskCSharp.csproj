@@ -72,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\MemberOf.cs" />
-    <Compile Include="Simple\SlackSingleAttachment.cs" />
+    <Compile Include="Simple\SlackSingleAttachmentTask.cs" />
     <Compile Include="Simple\UI\AttachementViewModel.cs" />
     <Compile Include="Simple\UI\SlackMessageViewModel.cs" />
     <Compile Include="Simple\UI\SlackSingleAttachmentTaskForm.cs">
@@ -121,7 +121,7 @@
   <ItemGroup>
     <None Include="ILMerge.props" />
     <None Include="packages.config" />
-    <Compile Include="Simple\SlackSingleAttachment.Properties.cs" />
+    <Compile Include="Simple\SlackSingleAttachmentTask.Properties.cs" />
     <None Include="ssis task.snk" />
   </ItemGroup>
   <ItemGroup>

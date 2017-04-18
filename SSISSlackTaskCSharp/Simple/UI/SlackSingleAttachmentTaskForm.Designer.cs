@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SlackSingleAttachmentTaskForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.SimpleMessageTextBox = new System.Windows.Forms.TextBox();
+            this.TextTextBox = new System.Windows.Forms.TextBox();
             this.DoneButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SlackMessageJsonTextBox = new System.Windows.Forms.TextBox();
@@ -72,7 +72,7 @@
             this.AttachmentFooterIconUrlTextBox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.TimeStampDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.AttachmentTimeStampDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -95,11 +95,11 @@
             // 
             // SimpleMessageTextBox
             // 
-            this.SimpleMessageTextBox.Location = new System.Drawing.Point(18, 121);
-            this.SimpleMessageTextBox.Multiline = true;
-            this.SimpleMessageTextBox.Name = "SimpleMessageTextBox";
-            this.SimpleMessageTextBox.Size = new System.Drawing.Size(600, 66);
-            this.SimpleMessageTextBox.TabIndex = 3;
+            this.TextTextBox.Location = new System.Drawing.Point(18, 121);
+            this.TextTextBox.Multiline = true;
+            this.TextTextBox.Name = "SimpleMessageTextBox";
+            this.TextTextBox.Size = new System.Drawing.Size(600, 66);
+            this.TextTextBox.TabIndex = 3;
             // 
             // DoneButton
             // 
@@ -436,10 +436,10 @@
             // 
             // TimeStampDatePicker
             // 
-            this.TimeStampDatePicker.Location = new System.Drawing.Point(92, 275);
-            this.TimeStampDatePicker.Name = "TimeStampDatePicker";
-            this.TimeStampDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.TimeStampDatePicker.TabIndex = 8;
+            this.AttachmentTimeStampDatePicker.Location = new System.Drawing.Point(92, 275);
+            this.AttachmentTimeStampDatePicker.Name = "TimeStampDatePicker";
+            this.AttachmentTimeStampDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.AttachmentTimeStampDatePicker.TabIndex = 8;
             // 
             // label5
             // 
@@ -474,7 +474,7 @@
             this.groupBox2.Controls.Add(this.AttachmentFallbackTextBox);
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.TimeStampDatePicker);
+            this.groupBox2.Controls.Add(this.AttachmentTimeStampDatePicker);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.AttachmentTextTextBox);
@@ -542,7 +542,7 @@
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.WebHookUrlTextBox);
-            this.Controls.Add(this.SimpleMessageTextBox);
+            this.Controls.Add(this.TextTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -565,48 +565,53 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox SimpleMessageTextBox;
+        private System.Windows.Forms.TextBox TextTextBox;
+        private System.Windows.Forms.TextBox ChannelTextBox;
+        private System.Windows.Forms.TextBox UserTextBox;
+        private System.Windows.Forms.TextBox SlackMessageJsonTextBox;
+        private System.Windows.Forms.TextBox WebHookUrlTextBox;
+        private System.Windows.Forms.TextBox AttachmentFallbackTextBox;
+        private System.Windows.Forms.TextBox AttachmentColorTextBox;
+        private System.Windows.Forms.TextBox AttachmentPreTextTextBox;
+        private System.Windows.Forms.TextBox AttachmentTextTextBox;
+        private System.Windows.Forms.TextBox AttachmentAuthorNameTextBox;
+        private System.Windows.Forms.TextBox AttachmentAuthorLinkUrlTextBox;
+        private System.Windows.Forms.TextBox AttachmentAuthorIconUrlTextBox;
+        private System.Windows.Forms.TextBox AttachmentTitleTextBox;
+        private System.Windows.Forms.TextBox AttachmentTitleLinkUrlTextBox;
+        private System.Windows.Forms.TextBox AttachmentImageUrlTextBox;
+        private System.Windows.Forms.TextBox AttachmentThumbUrlTextBox;
+        private System.Windows.Forms.TextBox AttachmentFooterTextBox;
+        private System.Windows.Forms.TextBox AttachmentFooterIconUrlTextBox;
+        private System.Windows.Forms.DateTimePicker AttachmentTimeStampDatePicker;
+
         private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox SlackMessageJsonTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox WebHookUrlTextBox;
         private System.Windows.Forms.Button TestButton;
-        private System.Windows.Forms.TextBox ChannelTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox UserTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox ResponseTextBox;
-        private System.Windows.Forms.TextBox AttachmentFallbackTextBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox AttachmentColorTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.TextBox AttachmentTextTextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox AttachmentPreTextTextBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox AttachmentAuthorNameTextBox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox AttachmentAuthorLinkUrlTextBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox AttachmentAuthorIconUrlTextBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox AttachmentTitleTextBox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox AttachmentTitleLinkUrlTextBox;
         public System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox AttachmentImageUrlTextBox;
         public System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox AttachmentThumbUrlTextBox;
+        
         public System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox AttachmentFooterTextBox;
+        
         public System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox AttachmentFooterIconUrlTextBox;
+        
         public System.Windows.Forms.Label label20;
         public System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DateTimePicker TimeStampDatePicker;
+        
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
