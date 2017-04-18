@@ -76,9 +76,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ColorPanel = new System.Windows.Forms.Panel();
             this.SlackHelpToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.ColorPanel = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.ColorPanel.SuspendLayout();
@@ -98,13 +98,13 @@
             this.SimpleMessageTextBox.Location = new System.Drawing.Point(18, 121);
             this.SimpleMessageTextBox.Multiline = true;
             this.SimpleMessageTextBox.Name = "SimpleMessageTextBox";
-            this.SimpleMessageTextBox.Size = new System.Drawing.Size(641, 66);
+            this.SimpleMessageTextBox.Size = new System.Drawing.Size(600, 66);
             this.SimpleMessageTextBox.TabIndex = 3;
             // 
             // DoneButton
             // 
             this.DoneButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.DoneButton.Location = new System.Drawing.Point(503, 730);
+            this.DoneButton.Location = new System.Drawing.Point(462, 749);
             this.DoneButton.Name = "DoneButton";
             this.DoneButton.Size = new System.Drawing.Size(75, 23);
             this.DoneButton.TabIndex = 8;
@@ -126,7 +126,7 @@
             this.SlackMessageJsonTextBox.Location = new System.Drawing.Point(19, 208);
             this.SlackMessageJsonTextBox.Multiline = true;
             this.SlackMessageJsonTextBox.Name = "SlackMessageJsonTextBox";
-            this.SlackMessageJsonTextBox.Size = new System.Drawing.Size(640, 122);
+            this.SlackMessageJsonTextBox.Size = new System.Drawing.Size(599, 122);
             this.SlackMessageJsonTextBox.TabIndex = 4;
             // 
             // label4
@@ -142,12 +142,12 @@
             // 
             this.WebHookUrlTextBox.Location = new System.Drawing.Point(19, 31);
             this.WebHookUrlTextBox.Name = "WebHookUrlTextBox";
-            this.WebHookUrlTextBox.Size = new System.Drawing.Size(641, 20);
+            this.WebHookUrlTextBox.Size = new System.Drawing.Size(599, 20);
             this.WebHookUrlTextBox.TabIndex = 0;
             // 
             // TestButton
             // 
-            this.TestButton.Location = new System.Drawing.Point(422, 730);
+            this.TestButton.Location = new System.Drawing.Point(381, 749);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(75, 23);
             this.TestButton.TabIndex = 7;
@@ -190,7 +190,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(584, 730);
+            this.button1.Location = new System.Drawing.Point(543, 749);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -202,7 +202,7 @@
             this.ResponseTextBox.Location = new System.Drawing.Point(23, 692);
             this.ResponseTextBox.Multiline = true;
             this.ResponseTextBox.Name = "ResponseTextBox";
-            this.ResponseTextBox.Size = new System.Drawing.Size(641, 32);
+            this.ResponseTextBox.Size = new System.Drawing.Size(595, 32);
             this.ResponseTextBox.TabIndex = 6;
             // 
             // AttachmentFallbackTextBox
@@ -494,10 +494,18 @@
             this.groupBox2.Controls.Add(this.AttachmentTitleLinkUrlTextBox);
             this.groupBox2.Location = new System.Drawing.Point(23, 347);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(636, 326);
+            this.groupBox2.Size = new System.Drawing.Size(595, 326);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Attachement";
+            // 
+            // ColorPanel
+            // 
+            this.ColorPanel.Controls.Add(this.AttachmentColorTextBox);
+            this.ColorPanel.Location = new System.Drawing.Point(90, 124);
+            this.ColorPanel.Name = "ColorPanel";
+            this.ColorPanel.Size = new System.Drawing.Size(179, 26);
+            this.ColorPanel.TabIndex = 4;
             // 
             // SlackHelpToolTip
             // 
@@ -508,26 +516,18 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(415, 333);
+            this.linkLabel1.Location = new System.Drawing.Point(365, 333);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(244, 13);
             this.linkLabel1.TabIndex = 44;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "https://api.slack.com/docs/message-attachments";
             // 
-            // ColorPanel
-            // 
-            this.ColorPanel.Controls.Add(this.AttachmentColorTextBox);
-            this.ColorPanel.Location = new System.Drawing.Point(90, 124);
-            this.ColorPanel.Name = "ColorPanel";
-            this.ColorPanel.Size = new System.Drawing.Size(179, 26);
-            this.ColorPanel.TabIndex = 4;
-            // 
             // SlackSingleAttachmentTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 784);
+            this.ClientSize = new System.Drawing.Size(631, 798);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label5);

@@ -1,8 +1,7 @@
 using System.ComponentModel;
 using SSISSlackTaskCSharp.Full.UI;
-using SSISSlackTaskCSharp.SSIS.SlackTaskUI;
 
-namespace SSISSlackTaskCSharp.SSIS.SlackSingleAttachmentUI
+namespace SSISSlackTaskCSharp.Simple.UI
 {
     public class AttachementViewModel
     {

@@ -2,9 +2,8 @@
 using System.Windows.Forms;
 using Microsoft.SqlServer.Dts.Runtime;
 using Microsoft.SqlServer.Dts.Runtime.Design;
-using SSISSlackTaskCSharp.SSIS.SlackSingleAttachmentUI;
 
-namespace SSISSlackTaskCSharp.Simple
+namespace SSISSlackTaskCSharp.Simple.UI
 {
     public class SlackSingleAttachmentTaskUI : IDtsTaskUI
     {

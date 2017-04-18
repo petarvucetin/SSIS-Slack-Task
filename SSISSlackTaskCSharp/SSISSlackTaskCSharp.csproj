@@ -27,6 +27,7 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -70,16 +71,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\MemberOf.cs" />
     <Compile Include="Simple\SlackSingleAttachment.cs" />
-    <Compile Include="Simple\AttachementViewModel.cs" />
-    <Compile Include="Simple\SlackMessageViewModel.cs" />
-    <Compile Include="Simple\SlackSingleAttachmentTaskForm.cs">
+    <Compile Include="Simple\UI\AttachementViewModel.cs" />
+    <Compile Include="Simple\UI\SlackMessageViewModel.cs" />
+    <Compile Include="Simple\UI\SlackSingleAttachmentTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Simple\SlackSingleAttachmentTaskForm.Designer.cs">
+    <Compile Include="Simple\UI\SlackSingleAttachmentTaskForm.Designer.cs">
       <DependentUpon>SlackSingleAttachmentTaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Simple\SlackSingleAttachmentTaskUI.cs" />
+    <Compile Include="Simple\UI\SlackSingleAttachmentTaskUI.cs" />
     <Compile Include="Full\TaskProperties.cs" />
     <Compile Include="Full\UI\AttachementViewModel.cs" />
     <Compile Include="Full\UI\FieldViewModel.cs" />
@@ -109,7 +111,7 @@
     <EmbeddedResource Include="Archive\SlackMessageEditorForm.resx">
       <DependentUpon>SlackMessageEditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Simple\SlackSingleAttachmentTaskForm.resx">
+    <EmbeddedResource Include="Simple\UI\SlackSingleAttachmentTaskForm.resx">
       <DependentUpon>SlackSingleAttachmentTaskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Full\UI\SSISTaskForm.resx">
@@ -119,6 +121,7 @@
   <ItemGroup>
     <None Include="ILMerge.props" />
     <None Include="packages.config" />
+    <Compile Include="Simple\SlackSingleAttachment.Properties.cs" />
     <None Include="ssis task.snk" />
   </ItemGroup>
   <ItemGroup>

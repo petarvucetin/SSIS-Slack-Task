@@ -10,9 +10,9 @@ namespace SSISSlackTaskCSharp.Full
 {
 
     [DtsTask(
-        DisplayName = "Slack Task",
-        Description = "Send message to slack",
-        UITypeName = "SSISSlackTaskCSharp.SSISTaskUI, SSISSlackTaskCSharp",
+        DisplayName = "Slack Task Full",
+        Description = "Send message to Slack.",
+        UITypeName = "SSISSlackTaskCSharp.Full.UI.FullTaskUI, SSISSlackTaskCSharp",
         IconResource = "SSISSlackTaskCSharp.web_slack_32px_1175007_easyicon.net.ico",
         TaskContact = "petar.vucetin@clear-lines.com")]
     public class SlackFullTask : Microsoft.SqlServer.Dts.Runtime.Task, IDTSComponentPersist
