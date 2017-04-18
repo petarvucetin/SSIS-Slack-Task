@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SSISSlackTaskCSharp.Simple
 {
-    public partial class SlackSingleAttachment
+    public partial class SlackSingleAttachmentTask
     {
         [Category("Slack Settings")]
         public string Text { get; set; }

@@ -10,7 +10,7 @@ namespace SSISSlackTaskCSharp.Simple
        UITypeName = "SSISSlackTaskCSharp.Simple.UI.SlackSingleAttachmentTaskUI, SSISSlackTaskCSharp",
        IconResource = "SSISSlackTaskCSharp.web_slack_32px_1175007_easyicon.net.ico",
        TaskContact = "petar.vucetin@clear-lines.com")]
-    public partial class SlackSingleAttachment : Microsoft.SqlServer.Dts.Runtime.Task
+    public partial class SlackSingleAttachmentTask : Microsoft.SqlServer.Dts.Runtime.Task
     {
 
         public override void InitializeTask(Connections connections, VariableDispenser variableDispenser, IDTSInfoEvents events, IDTSLogging log, EventInfos eventInfos, LogEntryInfos logEntryInfos, ObjectReferenceTracker refTracker)
