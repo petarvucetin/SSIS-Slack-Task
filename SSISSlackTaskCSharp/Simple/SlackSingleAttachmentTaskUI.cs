@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Windows.Forms;
 using Microsoft.SqlServer.Dts.Runtime;
 using Microsoft.SqlServer.Dts.Runtime.Design;
+using SSISSlackTaskCSharp.SSIS.SlackSingleAttachmentUI;
 
-using System.Windows.Forms;
-
-namespace SSISSlackTaskCSharp
+namespace SSISSlackTaskCSharp.Simple
 {
-    public class SSISTaskUI : IDtsTaskUI
+    public class SlackSingleAttachmentTaskUI : IDtsTaskUI
     {
         private TaskHost _taskHost ;
         private IServiceProvider _serviceProvider;
@@ -22,7 +17,7 @@ namespace SSISSlackTaskCSharp
 
         public ContainerControl GetView()
         {
-            return new SSISTaskForm(_taskHost, _serviceProvider);
+            return new SlackSingleAttachmentTaskForm(_taskHost, _serviceProvider);
         }
 
         public void Initialize(TaskHost taskHost, IServiceProvider serviceProvider)

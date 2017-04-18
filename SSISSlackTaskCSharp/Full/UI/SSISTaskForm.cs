@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Dts.Runtime;
+using SSISSlackTaskCSharp.Full.UI;
 
-namespace SSISSlackTaskCSharp
+namespace SSISSlackTaskCSharp.SSIS.SlackTaskUI
 {
     public partial class SSISTaskForm : Form
     {

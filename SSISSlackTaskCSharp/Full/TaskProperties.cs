@@ -1,4 +1,4 @@
-namespace SSISSlackTaskCSharp
+namespace SSISSlackTaskCSharp.Full
 {
     public class TaskProperties
     {

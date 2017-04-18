@@ -11,18 +11,18 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{E2A4A873-3E99-43F6-A63B-CCAEBFEFAD23}">
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{B4BC8941-5E2D-41A5-B44C-5E484DA65FB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Slack Task"
-      DTS:CreationName="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
+      DTS:CreationName="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.417.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:Description="Slack Task"
-      DTS:DTSID="{EDD66417-D5E4-43D6-B072-0CA8D9B8B443}"
-      DTS:ExecutableType="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
+      DTS:DTSID="{2B1F3B2D-8F5D-4D20-9BEE-D6C7EA34A802}"
+      DTS:ExecutableType="SSISSlackTaskCSharp.SSISTask, SSISSlackTaskCSharp, Version=1.0.417.0, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:LocaleID="-1"
       DTS:ObjectName="Slack Task"
       DTS:TaskContact="petar.vucetin@clear-lines.com"
@@ -33,46 +33,9 @@
           <WebHookUrl>https://hooks.slack.com/services/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</WebHookUrl>
           <Channel />
           <SlackMessage>
-            <Username>user 1</Username>
+            <Username>test</Username>
             <Text>test</Text>
-            <Attachments>
-              <Attachment>
-                <Color>good</Color>
-                <PreText>123</PreText>
-                <Title>tets1</Title>
-                <Fields>
-                  <Field>
-                    <Title>a</Title>
-                    <Short>false</Short>
-                  </Field>
-                  <Field>
-                    <Title>b</Title>
-                    <Short>false</Short>
-                  </Field>
-                  <Field>
-                    <Title>c</Title>
-                    <Short>false</Short>
-                  </Field>
-                </Fields>
-                <TimeStamp>0</TimeStamp>
-              </Attachment>
-              <Attachment>
-                <Color>error</Color>
-                <PreText>456</PreText>
-                <Title>test2</Title>
-                <Fields>
-                  <Field>
-                    <Title>1a</Title>
-                    <Short>false</Short>
-                  </Field>
-                  <Field>
-                    <Title>2b</Title>
-                    <Short>false</Short>
-                  </Field>
-                </Fields>
-                <TimeStamp>0</TimeStamp>
-              </Attachment>
-            </Attachments>
+            <Attachments />
           </SlackMessage>
         </TaskProperties>
       </DTS:ObjectData>
@@ -93,7 +56,7 @@
         <NodeLayout
           Size="128,42"
           Id="Package\Slack Task"
-          TopLeft="5.5,5.5" />
+          TopLeft="123,196" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

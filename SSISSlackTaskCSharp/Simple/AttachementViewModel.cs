@@ -1,15 +1,14 @@
 using System.ComponentModel;
+using SSISSlackTaskCSharp.Full.UI;
+using SSISSlackTaskCSharp.SSIS.SlackTaskUI;
 
-namespace SSISSlackTaskCSharp
+namespace SSISSlackTaskCSharp.SSIS.SlackSingleAttachmentUI
 {
     public class AttachementViewModel
     {
         public AttachementViewModel()
         {
-            Fields = new BindingList<FieldViewModel>();
         }
-
-        public int RowId { get; set; }
 
         public string Fallaback { get; set; }
 

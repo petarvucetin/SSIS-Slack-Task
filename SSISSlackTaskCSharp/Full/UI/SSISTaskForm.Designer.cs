@@ -1,4 +1,4 @@
-﻿namespace SSISSlackTaskCSharp
+﻿namespace SSISSlackTaskCSharp.SSIS.SlackTaskUI
 {
     partial class SSISTaskForm
     {

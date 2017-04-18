@@ -14,6 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,14 +25,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\Program Files %28x86%29\Microsoft SQL Server\130\DTS\Tasks\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -43,10 +47,12 @@
     <Reference Include="Microsoft.SqlServer.Dts.Design, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\PrivateAssemblies\Microsoft.SqlServer.Dts.Design.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.ManagedDTS\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.ManagedDTS.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -64,9 +70,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SSIS\TaskProperties.cs" />
-    <Compile Include="SSIS\UI\AttachementViewModel.cs" />
-    <Compile Include="SSIS\UI\FieldViewModel.cs" />
+    <Compile Include="Simple\SlackSingleAttachment.cs" />
+    <Compile Include="Simple\AttachementViewModel.cs" />
+    <Compile Include="Simple\SlackMessageViewModel.cs" />
+    <Compile Include="Simple\SlackSingleAttachmentTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Simple\SlackSingleAttachmentTaskForm.Designer.cs">
+      <DependentUpon>SlackSingleAttachmentTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Simple\SlackSingleAttachmentTaskUI.cs" />
+    <Compile Include="Full\TaskProperties.cs" />
+    <Compile Include="Full\UI\AttachementViewModel.cs" />
+    <Compile Include="Full\UI\FieldViewModel.cs" />
     <Compile Include="SlackClient\Attachement.cs" />
     <Compile Include="SlackClient\Field.cs" />
     <Compile Include="SlackClient\SlackClient.cs" />
@@ -78,22 +94,25 @@
     <Compile Include="Archive\SlackMessageEditorForm.Designer.cs">
       <DependentUpon>SlackMessageEditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SSIS\UI\SlackMessageViewModel.cs" />
-    <Compile Include="SSIS\SSISTask.cs" />
+    <Compile Include="Full\UI\SlackMessageViewModel.cs" />
+    <Compile Include="Full\SlackFullTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SSIS\UI\SSISTaskForm.cs">
+    <Compile Include="Full\UI\SSISTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SSIS\UI\SSISTaskForm.Designer.cs">
+    <Compile Include="Full\UI\SSISTaskForm.Designer.cs">
       <DependentUpon>SSISTaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SSIS\SSISTaskUI.cs" />
+    <Compile Include="Full\UI\SlackTaskUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Archive\SlackMessageEditorForm.resx">
       <DependentUpon>SlackMessageEditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SSIS\UI\SSISTaskForm.resx">
+    <EmbeddedResource Include="Simple\SlackSingleAttachmentTaskForm.resx">
+      <DependentUpon>SlackSingleAttachmentTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Full\UI\SSISTaskForm.resx">
       <DependentUpon>SSISTaskForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

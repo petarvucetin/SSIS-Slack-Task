@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using Microsoft.SqlServer.Dts.Runtime;
 using System.ComponentModel;
-using System.Drawing.Design;
 using System.IO;
+using System.Xml;
 using System.Xml.Serialization;
+using Microsoft.SqlServer.Dts.Runtime;
 
-namespace SSISSlackTaskCSharp
+namespace SSISSlackTaskCSharp.Full
 {
 
     [DtsTask(
         DisplayName = "Slack Task",
         Description = "Send message to slack",
-        UITypeName = "SSISSlackTaskCSharp.SSISTaskUI, SSISSlackTaskCSharp, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=81f28340fabd6dd7",
+        UITypeName = "SSISSlackTaskCSharp.SSISTaskUI, SSISSlackTaskCSharp",
         IconResource = "SSISSlackTaskCSharp.web_slack_32px_1175007_easyicon.net.ico",
         TaskContact = "petar.vucetin@clear-lines.com")]
-    public class SSISTask : Microsoft.SqlServer.Dts.Runtime.Task, IDTSComponentPersist
+    public class SlackFullTask : Microsoft.SqlServer.Dts.Runtime.Task, IDTSComponentPersist
     {
         [Category("Slack Settings")]
         public string Text { get; set; }

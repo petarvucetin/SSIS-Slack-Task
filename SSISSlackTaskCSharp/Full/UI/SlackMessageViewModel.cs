@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace SSISSlackTaskCSharp
+namespace SSISSlackTaskCSharp.Full.UI
 {
     public class SlackMessageViewModel
     {

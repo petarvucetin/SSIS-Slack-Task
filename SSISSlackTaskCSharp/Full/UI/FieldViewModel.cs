@@ -1,4 +1,4 @@
-﻿namespace SSISSlackTaskCSharp
+﻿namespace SSISSlackTaskCSharp.Full.UI
 {
     public class FieldViewModel
     {
