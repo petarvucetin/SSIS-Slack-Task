@@ -11,12 +11,89 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{1F7B1AF1-E872-4A9E-9558-FCBD1EA9D129}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{5C7358B7-7E35-4404-BF29-AB3C2D1FDFE9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Slack Attachment Task"
+      DTS:CreationName="SSISSlackTaskCSharp.Simple.SlackSingleAttachmentTask, SSISSlackTaskCSharp, Version=1.0.419.23, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
+      DTS:Description="Slack Attachment Task"
+      DTS:DTSID="{2C38B503-2F21-4D83-9BCF-DC6E6533A170}"
+      DTS:ExecutableType="SSISSlackTaskCSharp.Simple.SlackSingleAttachmentTask, SSISSlackTaskCSharp, Version=1.0.419.23, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Slack Attachment Task"
+      DTS:TaskContact="petar.vucetin@clear-lines.com"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <AttachmentAuthorIconUrl
+            Type="8"
+            Value="author icon url" />
+          <AttachmentAuthorLinkUrl
+            Type="8"
+            Value="author link url" />
+          <AttachmentAuthorName
+            Type="8"
+            Value="author name" />
+          <AttachmentColor
+            Type="8"
+            Value="00FF00" />
+          <AttachmentFallabackText
+            Type="8"
+            Value="fallback" />
+          <AttachmentFooter
+            Type="8"
+            Value="footer" />
+          <AttachmentFooterIconUrl
+            Type="8"
+            Value="footer url" />
+          <AttachmentImageUrl
+            Type="8"
+            Value="image url" />
+          <AttachmentPreText
+            Type="8"
+            Value="pre text" />
+          <AttachmentText
+            Type="8"
+            Value="attachment text" />
+          <AttachmentThumbUrl
+            Type="8"
+            Value="thumb url" />
+          <AttachmentTimeStamp
+            Type="20"
+            Value="0" />
+          <AttachmentTitle
+            Type="8"
+            Value="title" />
+          <AttachmentTitleLinkUrl
+            Type="8"
+            Value="title url" />
+          <Channel
+            Type="8"
+            Value="channel" />
+          <SlackMessageJson
+            Type="8"
+            Value="" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+          <Text
+            Type="8"
+            Value="main text" />
+          <User
+            Type="8"
+            Value="user" />
+          <WebHookUrl
+            Type="8"
+            Value="https://hooks.slack.com/services/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" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -24,5 +101,17 @@
 <Objects
   Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Slack Attachment Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

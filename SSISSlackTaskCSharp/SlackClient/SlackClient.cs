@@ -15,6 +15,7 @@ namespace SSISSlackTaskCSharp
 {
     public class SlackClient
     {
+
         private readonly Encoding _encoding = new UTF8Encoding();
 
         public string SendMessage(SlackMessage message, string webHook)

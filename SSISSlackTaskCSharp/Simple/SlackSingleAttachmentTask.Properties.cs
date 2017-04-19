@@ -50,6 +50,6 @@ namespace SSISSlackTaskCSharp.Simple
         [Category("Slack Settings")]
         public string AttachmentFooterIconUrl { get; set; }
         [Category("Slack Settings")]
-        public long AttachmentTimeStamp { get; set; }
+        public DateTime AttachmentTimeStamp { get; set; }
     }
 }

@@ -31,11 +31,9 @@ namespace SSISSlackTaskCSharp.Simple.UI
             _providerProperties = ExtractPropetiesFromProvider(propertiesProvider);
             BindTextPropertiesToForm(_providerProperties);
 
-            //time stamp is expressed as unix epoch
-            var timeStampProperty = _providerProperties.Single(z => z.Item1 == "AttachmentTimeStamp");
-            var timeStampPropertyAsLong = (long) Convert.ChangeType(timeStampProperty.Item1, timeStampProperty.Item2);
-            var timeStampPropertyAsDate = timeStampPropertyAsLong.ToDateTimeFromEpoch();
-            this.AttachmentTimeStampDatePicker.Value = timeStampPropertyAsDate;
+            
+            var timeStampProperty = (DateTime) _providerProperties.Single(z => z.Item1 == "AttachmentTimeStamp").Item3;
+            this.AttachmentTimeStampDatePicker.Value = timeStampProperty;
         }
 
         private void BindTextPropertiesToForm(Tuple<string, Type, object>[] properties)
@@ -74,7 +72,9 @@ namespace SSISSlackTaskCSharp.Simple.UI
 
         private void PushTextPropertiesToProvider()
         {
-            foreach (var providerProperty in _providerProperties)
+            var textProperties = _providerProperties.Where(z => z.Item2 == typeof(string));
+
+            foreach (var providerProperty in textProperties)
             {
                 var reference = _propertiesProvider.Properties[providerProperty.Item1];
 
@@ -89,12 +89,11 @@ namespace SSISSlackTaskCSharp.Simple.UI
         {
             PushTextPropertiesToProvider();
 
+            //time stamp
             var timeStamp = this.AttachmentTimeStampDatePicker.Value;
-            var timeStampToEpoch = timeStamp.ToEpochTime();
             var propertyName = _providerProperties.Single(z => z.Item1 == "AttachmentTimeStamp");
             var reference = _propertiesProvider.Properties[propertyName.Item1];
-
-            reference.SetValue(_propertiesProvider, timeStampToEpoch);
+            reference.SetValue(_propertiesProvider, timeStamp);
 
         }
 
