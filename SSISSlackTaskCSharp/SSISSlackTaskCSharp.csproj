@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Helpers.cs" />
     <Compile Include="Infrastructure\MemberOf.cs" />
     <Compile Include="Infrastructure\WindowsFormExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

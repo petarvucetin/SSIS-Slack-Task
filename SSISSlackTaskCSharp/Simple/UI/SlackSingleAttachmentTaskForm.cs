@@ -6,12 +6,14 @@ using System.Windows.Forms;
 using Microsoft.SqlServer.Dts.Runtime;
 using SSISSlackTaskCSharp.Infrastructure;
 
+
 namespace SSISSlackTaskCSharp.Simple.UI
 {
     public partial class SlackSingleAttachmentTaskForm : Form
     {
         private readonly IDTSPropertiesProvider _propertiesProvider;
         private IServiceProvider _serviceProvider;
+        private readonly Tuple<string, Type, object>[] _providerProperties;
 
         public SlackMessageViewModel SlackMessage { get; set; }
 
@@ -26,22 +28,25 @@ namespace SSISSlackTaskCSharp.Simple.UI
             _propertiesProvider = propertiesProvider;
             this._serviceProvider = serviceProvider;
 
-            var properties = ExtractPropetiesFromProvider(propertiesProvider);
-            BindPropertiesToForm(properties);
+            _providerProperties = ExtractPropetiesFromProvider(propertiesProvider);
+            BindTextPropertiesToForm(_providerProperties);
 
+            //time stamp is expressed as unix epoch
+            var timeStampProperty = _providerProperties.Single(z => z.Item1 == "AttachmentTimeStamp");
+            var timeStampPropertyAsLong = (long) Convert.ChangeType(timeStampProperty.Item1, timeStampProperty.Item2);
+            var timeStampPropertyAsDate = timeStampPropertyAsLong.ToDateTimeFromEpoch();
+            this.AttachmentTimeStampDatePicker.Value = timeStampPropertyAsDate;
         }
 
-        private void BindPropertiesToForm(Tuple<string, Type, object>[] properties)
+        private void BindTextPropertiesToForm(Tuple<string, Type, object>[] properties)
         {
             var textProperties = properties.Where(z => z.Item2 == typeof(string)).ToArray();
 
             foreach (var text in textProperties)
             {
-
                 var textBoxName = text.Item1 + "TextBox";
                 var textBox = this.FindControl<TextBox>(textBoxName);
                 var t = textBox.Single();
-                //var textBox = this.Controls.Find(textBoxName, true).Single();
                 t.Text = (string)text.Item3;
             }
 
@@ -67,13 +72,29 @@ namespace SSISSlackTaskCSharp.Simple.UI
             return list.ToArray();
         }
 
+        private void PushTextPropertiesToProvider()
+        {
+            foreach (var providerProperty in _providerProperties)
+            {
+                var reference = _propertiesProvider.Properties[providerProperty.Item1];
+
+                var textBoxName = providerProperty.Item1 + "TextBox";
+                var textBox = this.FindControl<TextBox>(textBoxName);
+                var t = textBox.Single();
+                reference.SetValue(_propertiesProvider, t.Text);
+            }
+        }
+
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            _propertiesProvider.Properties["Text"].SetValue(_propertiesProvider, this.TextTextBox.Text);
-            _propertiesProvider.Properties["WebHookUrl"].SetValue(_propertiesProvider, this.WebHookUrlTextBox.Text);
-            _propertiesProvider.Properties["SlackMessageJson"].SetValue(_propertiesProvider, this.SlackMessageJsonTextBox.Text);
-            _propertiesProvider.Properties["Channel"].SetValue(_propertiesProvider, this.ChannelTextBox.Text);
-            _propertiesProvider.Properties["User"].SetValue(_propertiesProvider, this.UserTextBox.Text);
+            PushTextPropertiesToProvider();
+
+            var timeStamp = this.AttachmentTimeStampDatePicker.Value;
+            var timeStampToEpoch = timeStamp.ToEpochTime();
+            var propertyName = _providerProperties.Single(z => z.Item1 == "AttachmentTimeStamp");
+            var reference = _propertiesProvider.Properties[propertyName.Item1];
+
+            reference.SetValue(_propertiesProvider, timeStampToEpoch);
 
         }
 
