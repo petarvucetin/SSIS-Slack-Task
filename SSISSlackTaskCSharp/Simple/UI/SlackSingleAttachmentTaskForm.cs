@@ -109,9 +109,31 @@ namespace SSISSlackTaskCSharp.Simple.UI
 
             var text = this.TextTextBox.Text;
 
-            var message = new SlackMessage();
-            message.Username = user;
-            message.Text = text;
+
+            var attachement = new Attachment
+            {
+                AuthorIconUrl = this.AttachmentAuthorIconUrlTextBox.Text,
+                Text = this.AttachmentTextTextBox.Text,
+                AuthorLink = this.AttachmentAuthorLinkUrlTextBox.Text,
+                AuthorName = this.AttachmentAuthorNameTextBox.Text,
+                Color = this.AttachmentColorTextBox.Text,
+                Fallaback = this.AttachmentFallabackTextTextBox.Text,
+                Footer = this.AttachmentFooterTextBox.Text,
+                FooterIconUrl = this.AttachmentFooterIconUrlTextBox.Text,
+                ImageUrl = this.AttachmentImageUrlTextBox.Text,
+                PreText = this.AttachmentPreTextTextBox.Text,
+                ThumbUrl = this.AttachmentThumbUrlTextBox.Text,
+                TimeStamp = (int) this.AttachmentTimeStampDatePicker.Value.ToEpochTime(),
+                Title = this.AttachmentTitleTextBox.Text,
+                TitleLinkUrl = this.AttachmentTitleLinkUrlTextBox.Text
+            };
+
+            var message = new SlackMessage
+            {
+                Username = user,
+                Text = text,
+                Attachments = new []{ attachement }
+            };
 
 
             this.ResponseTextBox.Text = client.SendMessage(message, webHook);

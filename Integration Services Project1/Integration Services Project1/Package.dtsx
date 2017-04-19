@@ -11,18 +11,18 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{5C7358B7-7E35-4404-BF29-AB3C2D1FDFE9}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{1FF7DA2E-484B-45F3-BA94-81CB8840CB7C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Slack Attachment Task"
-      DTS:CreationName="SSISSlackTaskCSharp.Simple.SlackSingleAttachmentTask, SSISSlackTaskCSharp, Version=1.0.419.23, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
+      DTS:CreationName="SSISSlackTaskCSharp.Simple.SlackSingleAttachmentTask, SSISSlackTaskCSharp, Version=1.0.419.2, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:Description="Slack Attachment Task"
-      DTS:DTSID="{2C38B503-2F21-4D83-9BCF-DC6E6533A170}"
-      DTS:ExecutableType="SSISSlackTaskCSharp.Simple.SlackSingleAttachmentTask, SSISSlackTaskCSharp, Version=1.0.419.23, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
+      DTS:DTSID="{BB071820-0184-4087-9D90-CB06B7E1DB3D}"
+      DTS:ExecutableType="SSISSlackTaskCSharp.Simple.SlackSingleAttachmentTask, SSISSlackTaskCSharp, Version=1.0.419.2, Culture=neutral, PublicKeyToken=81f28340fabd6dd7"
       DTS:LocaleID="-1"
       DTS:ObjectName="Slack Attachment Task"
       DTS:TaskContact="petar.vucetin@clear-lines.com"
@@ -35,13 +35,13 @@
             Value="author icon url" />
           <AttachmentAuthorLinkUrl
             Type="8"
-            Value="author link url" />
+            Value="author Url" />
           <AttachmentAuthorName
             Type="8"
             Value="author name" />
           <AttachmentColor
             Type="8"
-            Value="00FF00" />
+            Value="FF8040" />
           <AttachmentFallabackText
             Type="8"
             Value="fallback" />
@@ -50,10 +50,10 @@
             Value="footer" />
           <AttachmentFooterIconUrl
             Type="8"
-            Value="footer url" />
+            Value="footer Icon Url" />
           <AttachmentImageUrl
             Type="8"
-            Value="image url" />
+            Value="image URL" />
           <AttachmentPreText
             Type="8"
             Value="pre text" />
@@ -62,10 +62,10 @@
             Value="attachment text" />
           <AttachmentThumbUrl
             Type="8"
-            Value="thumb url" />
+            Value="Thumb url" />
           <AttachmentTimeStamp
-            Type="20"
-            Value="0" />
+            Type="7"
+            Value="4/19/2017" />
           <AttachmentTitle
             Type="8"
             Value="title" />
@@ -74,7 +74,7 @@
             Value="title url" />
           <Channel
             Type="8"
-            Value="channel" />
+            Value="ch1" />
           <SlackMessageJson
             Type="8"
             Value="" />
@@ -83,10 +83,10 @@
             Value="130" />
           <Text
             Type="8"
-            Value="main text" />
+            Value="Main text" />
           <User
             Type="8"
-            Value="user" />
+            Value="UserA" />
           <WebHookUrl
             Type="8"
             Value="https://hooks.slack.com/services/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" />
