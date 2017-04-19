@@ -24,7 +24,7 @@ namespace SSISSlackTaskCSharp.Simple
         public string WebHookUrl { get; set; }
 
         [Category("Slack Settings")]
-        public string AttachmentFallaback { get; set; }
+        public string AttachmentFallabackText { get; set; }
         [Category("Slack Settings")]
         public string AttachmentColor { get; set; }
         [Category("Slack Settings")]

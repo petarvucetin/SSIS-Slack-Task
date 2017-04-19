@@ -44,7 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.ResponseTextBox = new System.Windows.Forms.TextBox();
-            this.AttachmentFallbackTextBox = new System.Windows.Forms.TextBox();
+            this.AttachmentFallabackTextTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.AttachmentColorTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -93,11 +93,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Main Text";
             // 
-            // SimpleMessageTextBox
+            // TextTextBox
             // 
             this.TextTextBox.Location = new System.Drawing.Point(18, 121);
             this.TextTextBox.Multiline = true;
-            this.TextTextBox.Name = "SimpleMessageTextBox";
+            this.TextTextBox.Name = "TextTextBox";
             this.TextTextBox.Size = new System.Drawing.Size(600, 66);
             this.TextTextBox.TabIndex = 3;
             // 
@@ -205,13 +205,15 @@
             this.ResponseTextBox.Size = new System.Drawing.Size(595, 32);
             this.ResponseTextBox.TabIndex = 6;
             // 
-            // AttachmentFallbackTextBox
+            // AttachmentFallabackTextTextBox
             // 
-            this.AttachmentFallbackTextBox.Location = new System.Drawing.Point(90, 71);
-            this.AttachmentFallbackTextBox.Name = "AttachmentFallbackTextBox";
-            this.AttachmentFallbackTextBox.Size = new System.Drawing.Size(148, 20);
-            this.AttachmentFallbackTextBox.TabIndex = 2;
-            this.SlackHelpToolTip.SetToolTip(this.AttachmentFallbackTextBox, "A plain-text summary of the attachment. This text will be used in clients that do" +
+            this.AttachmentFallabackTextTextBox.AcceptsReturn = true;
+            this.AttachmentFallabackTextTextBox.BackColor = System.Drawing.Color.White;
+            this.AttachmentFallabackTextTextBox.Location = new System.Drawing.Point(90, 71);
+            this.AttachmentFallabackTextTextBox.Name = "AttachmentFallabackTextTextBox";
+            this.AttachmentFallabackTextTextBox.Size = new System.Drawing.Size(148, 20);
+            this.AttachmentFallabackTextTextBox.TabIndex = 2;
+            this.SlackHelpToolTip.SetToolTip(this.AttachmentFallabackTextTextBox, "A plain-text summary of the attachment. This text will be used in clients that do" +
         "n\'t show formatted text (eg. IRC, mobile notifications) and should not contain a" +
         "ny markup.");
             // 
@@ -434,10 +436,10 @@
             this.label21.TabIndex = 39;
             this.label21.Text = "Time Stamp";
             // 
-            // TimeStampDatePicker
+            // AttachmentTimeStampDatePicker
             // 
             this.AttachmentTimeStampDatePicker.Location = new System.Drawing.Point(92, 275);
-            this.AttachmentTimeStampDatePicker.Name = "TimeStampDatePicker";
+            this.AttachmentTimeStampDatePicker.Name = "AttachmentTimeStampDatePicker";
             this.AttachmentTimeStampDatePicker.Size = new System.Drawing.Size(200, 20);
             this.AttachmentTimeStampDatePicker.TabIndex = 8;
             // 
@@ -471,7 +473,7 @@
             // 
             this.groupBox2.Controls.Add(this.ColorPanel);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.AttachmentFallbackTextBox);
+            this.groupBox2.Controls.Add(this.AttachmentFallabackTextTextBox);
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.AttachmentTimeStampDatePicker);
@@ -570,7 +572,7 @@
         private System.Windows.Forms.TextBox UserTextBox;
         private System.Windows.Forms.TextBox SlackMessageJsonTextBox;
         private System.Windows.Forms.TextBox WebHookUrlTextBox;
-        private System.Windows.Forms.TextBox AttachmentFallbackTextBox;
+        private System.Windows.Forms.TextBox AttachmentFallabackTextTextBox;
         private System.Windows.Forms.TextBox AttachmentColorTextBox;
         private System.Windows.Forms.TextBox AttachmentPreTextTextBox;
         private System.Windows.Forms.TextBox AttachmentTextTextBox;

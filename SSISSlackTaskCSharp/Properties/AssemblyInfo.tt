@@ -15,7 +15,7 @@ string currentDirectory = Path.GetDirectoryName(Host.TemplateFile);
 string assemblyInfo = File.ReadAllText(Path.Combine(currentDirectory, "AssemblyInfo.cs"));
 Regex pattern = new Regex("AssemblyVersion\\(\"\\d+\\.\\d+\\.(?<revision>\\d+)\\.(?<build>\\d+)\"\\)");
 MatchCollection matches = pattern.Matches(assemblyInfo);
-revision = DateTime.Now.ToString("mmdd");
+//revision = DateTime.Now.ToString("mmdd");
 build = Convert.ToInt32(matches[0].Groups["build"].Value) + (incBuild?1:0);
 }
 catch( Exception ) { }
@@ -42,6 +42,6 @@ using System.Resources;
 [assembly: NeutralResourcesLanguageAttribute( "en-US" )]
 
 <#+
-string revision = DateTime.Now.ToString("mmdd");
+string revision = DateTime.Now.ToString("MMdd");
 int build = 0;
 #>

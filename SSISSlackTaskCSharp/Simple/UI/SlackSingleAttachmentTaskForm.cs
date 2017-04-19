@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Dts.Runtime;
+using SSISSlackTaskCSharp.Infrastructure;
 
 namespace SSISSlackTaskCSharp.Simple.UI
 {
@@ -38,8 +39,10 @@ namespace SSISSlackTaskCSharp.Simple.UI
             {
 
                 var textBoxName = text.Item1 + "TextBox";
-                var textBox = this.Controls.Find(textBoxName, true).Single();
-                textBox.Text = (string)text.Item3;
+                var textBox = this.FindControl<TextBox>(textBoxName);
+                var t = textBox.Single();
+                //var textBox = this.Controls.Find(textBoxName, true).Single();
+                t.Text = (string)text.Item3;
             }
 
         }
